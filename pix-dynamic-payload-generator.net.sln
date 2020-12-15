@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pix-dynamic-payload-generator.net", "pix-dynamic-payload-generator.net\pix-dynamic-payload-generator.net.csproj", "{AB787261-2AAF-4CFE-8183-5F1F4DE42704}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pix-dynamic-payload-generator.net-test", "pix-dynamic-payload-generator.net-test\pix-dynamic-payload-generator.net-test.csproj", "{631EE4F9-3F38-4D41-904F-8A366462959B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AB787261-2AAF-4CFE-8183-5F1F4DE42704}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB787261-2AAF-4CFE-8183-5F1F4DE42704}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB787261-2AAF-4CFE-8183-5F1F4DE42704}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB787261-2AAF-4CFE-8183-5F1F4DE42704}.Release|Any CPU.Build.0 = Release|Any CPU
+		{631EE4F9-3F38-4D41-904F-8A366462959B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{631EE4F9-3F38-4D41-904F-8A366462959B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{631EE4F9-3F38-4D41-904F-8A366462959B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{631EE4F9-3F38-4D41-904F-8A366462959B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AEDDFFB8-0115-44EB-8B5B-A0D1E365950A}
+	EndGlobalSection
+EndGlobal
