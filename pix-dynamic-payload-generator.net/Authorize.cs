@@ -41,28 +41,22 @@ namespace pix_dynamic_payload_generator.net
 
         public string GetToken()
         {
-            var byteArray = new UTF8Encoding().GetBytes("Client_Id_51d92e9836716a4ab9b3ec1d9d34f6644ac28d69:Client_Secret_0ab77acbf2bde2cc40a1162f596846fa75ff710e");
+            var byteArray = new UTF8Encoding().GetBytes(ClientId + ":" + ClientSecret);
 
             //O certificado tem que ser definido como "copy always"
-            X509Certificate2 uidCert = new X509Certificate2(@".\certificado.p12");
+            X509Certificate2 uidCert = new X509Certificate2(Certificate);
 
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api-pix-h.gerencianet.com.br/oauth/token");
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(BaseUrl);
 
             request.ClientCertificates.Add(uidCert);
             request.Method = "POST";
             request.Headers.Add("Authorization", "Basic " + Convert.ToBase64String(byteArray));
             request.Headers.Add("Content-Type", "application/json");
             request.ContentType = "application/json";
-            //request. = "{\r\n    \"grant_type\": \"client_credentials\"\r\n}";
-
 
             using (var streamWriter = new System.IO.StreamWriter(request.GetRequestStream()))
             {
-                //string json = "{\"user\":\"test\"," +
-                //              "\"password\":\"bla\"}";
-
                 var json = "{\r\n    \"grant_type\": \"client_credentials\"\r\n}";
-
                 streamWriter.Write(json);
             }
 
