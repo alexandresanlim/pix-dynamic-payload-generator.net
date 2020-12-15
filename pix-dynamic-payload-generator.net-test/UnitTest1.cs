@@ -9,7 +9,7 @@ namespace pix_dynamic_payload_generator.net_test
         [TestMethod]
         public void Generate()
         {
-            var a = Authorize.ge();
+            var a = new Authorize();
         }
     }
 }
