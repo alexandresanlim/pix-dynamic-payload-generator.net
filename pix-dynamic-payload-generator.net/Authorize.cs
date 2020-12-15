@@ -41,7 +41,7 @@ namespace pix_dynamic_payload_generator.net
 
         public string GetToken()
         {
-            
+            var byteArray = new UTF8Encoding().GetBytes("Client_Id_51d92e9836716a4ab9b3ec1d9d34f6644ac28d69:Client_Secret_0ab77acbf2bde2cc40a1162f596846fa75ff710e");
 
             //O certificado tem que ser definido como "copy always"
             X509Certificate2 uidCert = new X509Certificate2(@".\certificado.p12");
