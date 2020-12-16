@@ -1,11 +1,19 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using pix_dynamic_payload_generator.net;
+using pix_dynamic_payload_generator.net.Models;
+using pix_dynamic_payload_generator.net.Requests;
+using System.Threading.Tasks;
 
 namespace pix_dynamic_payload_generator.net_test
 {
     [TestClass]
     public class UnitTest1
     {
+        public UnitTest1()
+        {
+            new net.ApiResource.Config(_baseUrl: "https://api-pix-h.gerencianet.com.br");
+        }
+
         [TestMethod]
         public void Generate()
         {
@@ -17,6 +25,47 @@ namespace pix_dynamic_payload_generator.net_test
                 );
 
             var t = authorize.GetToken();
+        }
+
+        [TestMethod]
+        public async Task GenerateCob()
+        {
+            var cob = new Cob
+            {
+                Calendario = new Calendario
+                {
+                    Expiracao = 3600
+                },
+                Devedor = new Devedor
+                {
+                    Cnpj = "12345678000195",
+                    Nome = "Empresa de Serviços SA",
+                },
+                Valor = new Valor
+                {
+                    Original = "37.00"
+                },
+                Chave = "alelima.sep@gmail.com",
+                SolicitacaoPagador = "Serviço realizado.",
+                InfoAdicionais = new System.Collections.Generic.List<InfoAdicional>
+                {
+                    new InfoAdicional
+                    {
+                        Nome = "Campo 1",
+                        Valor = "Informação Adicional1 do PSP-Recebedor"
+                    },
+                    new InfoAdicional
+                    {
+                        Nome = "Campo 2",
+                        Valor = "Informação Adicional2 do PSP-Recebedor"
+                    }
+                }
+            };
+
+
+            var cobOperation = new CobOperation();
+
+            var cb = await cobOperation.Create("fc9a4366ff3d4964b5dbc6c91a8724d5", cob);
         }
     }
 }

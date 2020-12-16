@@ -1,9 +1,12 @@
-﻿using RestSharp;
+﻿using Newtonsoft.Json;
+using pix_dynamic_payload_generator.net.Models;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
@@ -39,7 +42,7 @@ namespace pix_dynamic_payload_generator.net
         /// </summary>
         public string Certificate { get; set; }
 
-        public string GetToken()
+        public Responses.TokenResponse GetToken()
         {
             var byteArray = new UTF8Encoding().GetBytes(ClientId + ":" + ClientSecret);
 
@@ -65,8 +68,79 @@ namespace pix_dynamic_payload_generator.net
             using (var streamReader = new System.IO.StreamReader(httpResponse.GetResponseStream()))
             {
                 var result = streamReader.ReadToEnd();
-                return result;
+
+                request.Abort();
+
+                return JsonConvert.DeserializeObject<Responses.TokenResponse>(result);
+                //return result;
             }
+
+            
         }
+
+        ///// <summary>
+        ///// Criar uma cobrança imediata
+        ///// </summary>
+        ///// <param name="txId"></param>
+        ///// <param name="cob"></param>
+        //public void CreateCob(string txId)
+        //{
+        //    try
+        //    {
+        //        var token = GetToken();
+
+        //        //var byteArray = new UTF8Encoding().GetBytes(ClientId + ":" + ClientSecret);
+
+        //        var byteArray = new UTF8Encoding().GetBytes(token.AccessToken);
+
+        //        //X509Certificate2 uidCert = new X509Certificate2(Certificate);
+
+        //        //ServicePointManager.SecurityProtocol |= SecurityProtocolType.Tls12;
+        //        //ServicePointManager.SecurityProtocol |= (SecurityProtocolType)3072;
+        //        //System.Net.ServicePointManager.ServerCertificateValidationCallback += new RemoteCertificateValidationCallback((sender, certificate, chain, policyErrors) => { return true; });
+        //        //System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+        //        //System.Net.ServicePointManager.Expect100Continue = false;
+
+        //        HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api-pix-h.gerencianet.com.br/v2/cob/" + txId);
+        //        request.Method = "PUT";
+        //        request.Headers.Add("Authorization", "Bearer " + token.AccessToken);
+        //          //request.Headers.Add("Authorization", "Basic " + Convert.ToBase64String(byteArray));
+        //        request.Headers.Add("Content-Type", "application/json");
+        //        request.ContentType = "application/json";
+        //        //request.KeepAlive = false;
+        //        //request.ProtocolVersion = HttpVersion.Version10;
+        //        //request.ServicePoint.ConnectionLimit = 1;
+
+        //        //var handler = new HttpClientHandler();
+        //        //handler.ServerCertificateCustomValidationCallback = delegate { return true; };
+
+        //        //request.ha
+
+
+        //        //clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+        //        using (var streamWriter = new System.IO.StreamWriter(request.GetRequestStream()))
+        //        {
+        //            var json = "{\r\n  \"calendario\": {\r\n    \"expiracao\": 3600\r\n  },\r\n  \"devedor\": {\r\n    \"cpf\": \"12345678909\",\r\n    \"nome\": \"Francisco da Silva\"\r\n  },\r\n  \"valor\": {\r\n    \"original\": \"124.45\"\r\n  },\r\n  \"chave\": \"\",\r\n  \"solicitacaoPagador\": \"Cobrança dos serviços prestados.\"\r\n}";
+        //            streamWriter.Write(json);
+        //        }
+
+        //        //System.Net.ServicePointManager.Expect100Continue = false;
+        //        var httpResponse = (HttpWebResponse)request.GetResponse();
+
+        //        using (var streamReader = new System.IO.StreamReader(httpResponse.GetResponseStream()))
+        //        {
+        //            var result = streamReader.ReadToEnd();
+
+        //            //return JsonConvert.DeserializeObject<Responses.TokenResponse>(result);
+        //            //return result;
+        //        }
+        //    }
+        //    catch (Exception e)
+        //    {
+
+        //        throw;
+        //    }
+        //}
     }
 }
