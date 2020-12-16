@@ -9,13 +9,24 @@ namespace pix_dynamic_payload_generator.net
 {
     public class StartConfig
     {
-        //https://api-pix-h.gerencianet.com.br
+        /// <summary>
+        /// Url da api pix do PSP, exemplo: https://api-pix-h.gerencianet.com.br
+        /// </summary>
         public static string BaseUrl { get; private set; }
 
+        /// <summary>
+        /// Caminho absoluto do certificado
+        /// </summary>
         public static string CertificatePath { get; private set; }
 
+        /// <summary>
+        /// ClientId do oauth 2 do PSP
+        /// </summary>
         public static string ClientId { get; private set; }
 
+        /// <summary>
+        /// ClientSecret do oauth 2 do PSP
+        /// </summary>
         public static string ClientSecret { get; private set; }
 
         public static X509Certificate2 Certificate => new X509Certificate2(CertificatePath);
@@ -29,6 +40,14 @@ namespace pix_dynamic_payload_generator.net
             ClientSecret = _clientSecret;
             CertificatePath = _certificatePath;
         }
+
+        //public static void Start(string _baseUrl, string _clientId, string _clientSecret, string _certificatePath)
+        //{
+        //    BaseUrl = _baseUrl;
+        //    ClientId = _clientId;
+        //    ClientSecret = _clientSecret;
+        //    CertificatePath = _certificatePath;
+        //}
 
         public static Responses.TokenResponse GetToken()
         {
