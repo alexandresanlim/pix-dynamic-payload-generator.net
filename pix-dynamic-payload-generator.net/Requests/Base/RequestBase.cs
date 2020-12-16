@@ -21,7 +21,7 @@ namespace pix_dynamic_payload_generator.net.Requests.Base
 
         public void SetRoute(string value)
         {
-            Route = Start.BaseUrl + "/v2/" + value;
+            Route = StartConfig.BaseUrl + "/v2/" + value;
         }
 
         public string GetUrlRequest()
