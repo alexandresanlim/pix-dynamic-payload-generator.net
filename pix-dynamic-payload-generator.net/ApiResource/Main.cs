@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using pix_dynamic_payload_generator.net.Responses.Base;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -35,6 +36,7 @@ namespace pix_dynamic_payload_generator.net.ApiResource
     public class Main : IMain
     {
         private readonly IHttpClientWrapper client;
+
         private readonly JsonSerializerSettings JsonSettings;
 
         /// <summary>

@@ -10,7 +10,7 @@ namespace pix_dynamic_payload_generator.net.Models
         [JsonProperty("expiracao")]
         public int Expiracao { get; set; }
 
-        [JsonProperty("criacao")]
-        public DateTime Criacao { get; set; }
+        //[JsonProperty("criacao")]
+        //public DateTime Criacao { get; set; }
     }
 }

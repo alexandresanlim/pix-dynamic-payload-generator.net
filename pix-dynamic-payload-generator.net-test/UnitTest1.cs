@@ -65,7 +65,7 @@ namespace pix_dynamic_payload_generator.net_test
 
             var cobOperation = new CobOperation();
 
-            var cb = await cobOperation.Create("fc9a4366ff3d4964b5dbc6c91a8724d5", cob);
+            var cb = await cobOperation.Create(System.Guid.NewGuid().ToString("N"), cob);
         }
     }
 }
