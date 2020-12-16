@@ -1,39 +1,14 @@
 ﻿using Newtonsoft.Json;
-using pix_dynamic_payload_generator.net.Responses.Base;
+using pix_dynamic_payload_generator.net.ApiResource;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace pix_dynamic_payload_generator.net.ApiResource
+namespace pix_dynamic_payload_generator.net.Requests.Base
 {
-
-    public interface IMain : IDisposable
-    {
-        /// <summary>
-        /// 
-        /// </summary>
-        string GetBaseURI();
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="data"></param>
-        /// <returns></returns>
-        Task<T> GetAsync<T>(object data);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="data"></param>
-        /// <returns></returns>
-        Task<T> PostAsync<T>(object data, Dictionary<string, string> headers);
-    }
-
-    public class Main : IMain
+    public class RequestBase : IRequestBase
     {
         private readonly IHttpClientWrapper client;
 
@@ -46,7 +21,7 @@ namespace pix_dynamic_payload_generator.net.ApiResource
 
         public void SetBaseUri(string value)
         {
-            BaseURI = Config.BaseUrl + "/v2/" + value;
+            BaseURI = Start.BaseUrl + "/v2/" + value;
         }
 
         public string GetBaseURI()
@@ -59,7 +34,7 @@ namespace pix_dynamic_payload_generator.net.ApiResource
         /// </summary>
         /// <param name="customClient"></param>
         /// <param name="customJsonSerializerSettings"></param>
-        public Main(IHttpClientWrapper customClient, JsonSerializerSettings customJsonSerializerSettings = null)
+        public RequestBase(IHttpClientWrapper customClient, JsonSerializerSettings customJsonSerializerSettings = null)
         {
             client = customClient;
             JsonSettings = customJsonSerializerSettings ?? new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore };
@@ -68,7 +43,7 @@ namespace pix_dynamic_payload_generator.net.ApiResource
         /// <summary>
         /// 
         /// </summary>
-        public Main() : this(new StandardHttpClient(), new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore })
+        public RequestBase() : this(new StandardHttpClient(), new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore })
         {
         }
 

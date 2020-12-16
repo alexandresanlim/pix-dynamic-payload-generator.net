@@ -11,7 +11,12 @@ namespace pix_dynamic_payload_generator.net_test
     {
         public UnitTest1()
         {
-            new net.ApiResource.Config(_baseUrl: "https://api-pix-h.gerencianet.com.br");
+            new Start(
+                _baseUrl: "https://api-pix-h.gerencianet.com.br",
+                _clientId: "Client_Id_51d92e9836716a4ab9b3ec1d9d34f6644ac28d69",
+                _clientSecret: "Client_Secret_0ab77acbf2bde2cc40a1162f596846fa75ff710e",
+                _certificatePath: @".\certificado.p12"
+                );
         }
 
         [TestMethod]
@@ -63,7 +68,7 @@ namespace pix_dynamic_payload_generator.net_test
             };
 
 
-            var cobOperation = new CobOperation();
+            var cobOperation = new CobRequest();
 
             var cb = await cobOperation.Create(System.Guid.NewGuid().ToString("N"), cob);
         }

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace pix_dynamic_payload_generator.net.Responses
 {
-    public class ResponseCob
+    public class CobResponse
     {
         [JsonProperty("calendario")]
         public Calendario Calendario { get; set; }

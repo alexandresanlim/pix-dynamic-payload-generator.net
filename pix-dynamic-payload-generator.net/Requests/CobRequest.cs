@@ -1,5 +1,6 @@
 ﻿using pix_dynamic_payload_generator.net.ApiResource;
 using pix_dynamic_payload_generator.net.Models;
+using pix_dynamic_payload_generator.net.Requests.Base;
 using pix_dynamic_payload_generator.net.Responses;
 using System;
 using System.Collections.Generic;
@@ -8,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace pix_dynamic_payload_generator.net.Requests
 {
-    public class CobOperation : Main
+    public class CobRequest : RequestBase
     {
-        public CobOperation()
+        public CobRequest()
         {
             SetBaseUri("cob");
         }
@@ -20,14 +21,14 @@ namespace pix_dynamic_payload_generator.net.Requests
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        public async Task<ResponseCob> Create(Cob cob)
+        public async Task<CobResponse> Create(Cob cob)
         {
-            return await PostAsync<ResponseCob>(cob);
+            return await PostAsync<CobResponse>(cob);
         }
 
-        public async Task<ResponseCob> Create(string txId, Cob cob)
+        public async Task<CobResponse> Create(string txId, Cob cob)
         {
-            return await PutAsync<ResponseCob>(txId, cob);
+            return await PutAsync<CobResponse>(txId, cob);
         }
     }
 }
