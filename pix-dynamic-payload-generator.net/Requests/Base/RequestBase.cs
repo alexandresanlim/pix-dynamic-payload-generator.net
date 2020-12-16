@@ -17,16 +17,16 @@ namespace pix_dynamic_payload_generator.net.Requests.Base
         /// <summary>
         /// 
         /// </summary>
-        private string BaseURI { get; set; }
+        private string Route { get; set; }
 
-        public void SetBaseUri(string value)
+        public void SetRoute(string value)
         {
-            BaseURI = Start.BaseUrl + "/v2/" + value;
+            Route = Start.BaseUrl + "/v2/" + value;
         }
 
-        public string GetBaseURI()
+        public string GetUrlRequest()
         {
-            return BaseURI;
+            return Route; //Start.BaseUrl + "/v2/" + Route;
         }
 
         /// <summary>
@@ -64,8 +64,19 @@ namespace pix_dynamic_payload_generator.net.Requests.Base
         /// <returns></returns>
         public async Task<T> GetAsync<T>(object data)
         {
-            //var completeUrl = GetCompleteUrl();
-            var response = await SendRequestAsync(HttpMethod.Get, GetBaseURI(), data).ConfigureAwait(false);
+            var response = await SendRequestAsync(HttpMethod.Get, GetUrlRequest(), data).ConfigureAwait(false);
+            return await ProcessResponse<T>(response).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public async Task<T> GetAsync<T>(string path)
+        {
+            var response = await SendRequestAsync(HttpMethod.Get, GetUrlRequest() + "/" + path).ConfigureAwait(false);
             return await ProcessResponse<T>(response).ConfigureAwait(false);
         }
 
@@ -80,7 +91,7 @@ namespace pix_dynamic_payload_generator.net.Requests.Base
         {
             try
             {
-                var b = GetBaseURI();
+                var b = GetUrlRequest();
 
                 var response = await SendRequestAsync(HttpMethod.Post, b, data, null, headers).ConfigureAwait(false);
 
@@ -106,7 +117,7 @@ namespace pix_dynamic_payload_generator.net.Requests.Base
         {
             try
             {
-                var b = GetBaseURI() + "/" + txId;
+                var b = GetUrlRequest() + "/" + txId;
 
                 var response = await SendRequestAsync(HttpMethod.Put, b, data, null, headers).ConfigureAwait(false);
 
@@ -114,11 +125,8 @@ namespace pix_dynamic_payload_generator.net.Requests.Base
             }
             catch (Exception e)
             {
-
                 throw e;
             }
-
-
         }
 
         private async Task<T> ProcessResponse<T>(HttpResponseMessage response)

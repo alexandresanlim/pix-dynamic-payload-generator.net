@@ -13,7 +13,7 @@ namespace pix_dynamic_payload_generator.net.Requests
     {
         public CobRequest()
         {
-            SetBaseUri("cob");
+            SetRoute("cob");
         }
 
         /// <summary>
@@ -29,6 +29,11 @@ namespace pix_dynamic_payload_generator.net.Requests
         public async Task<CobResponse> Create(string txId, Cob cob)
         {
             return await PutAsync<CobResponse>(txId, cob);
+        }
+
+        public async Task<CobResponse> GetByTxId(string txId)
+        {
+            return await GetAsync<CobResponse>(txId);
         }
     }
 }

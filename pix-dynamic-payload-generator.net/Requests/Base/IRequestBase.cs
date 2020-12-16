@@ -10,7 +10,7 @@ namespace pix_dynamic_payload_generator.net.Requests.Base
         /// <summary>
         /// 
         /// </summary>
-        string GetBaseURI();
+        //string GetUrlRequest();
 
         /// <summary>
         /// 

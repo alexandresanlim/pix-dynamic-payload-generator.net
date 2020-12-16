@@ -20,7 +20,7 @@ namespace pix_dynamic_payload_generator.net_test
         }
 
         [TestMethod]
-        public void Generate()
+        public void GenerateToken()
         {
             var authorize = new Authorize(
                 _baseUrl: "https://api-pix-h.gerencianet.com.br/oauth/token",
@@ -68,9 +68,16 @@ namespace pix_dynamic_payload_generator.net_test
             };
 
 
-            var cobOperation = new CobRequest();
+            var cobRequest = new CobRequest();
 
-            var cb = await cobOperation.Create(System.Guid.NewGuid().ToString("N"), cob);
+            var cb = await cobRequest.Create(System.Guid.NewGuid().ToString("N"), cob);
+        }
+
+        [TestMethod]
+        public async Task GetCobByTxId()
+        {
+            var cobRequest = new CobRequest();
+            var cb = await cobRequest.GetByTxId("2883c7672f794369a293bfb3d2ec6c69");
         }
     }
 }
