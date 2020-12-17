@@ -5,6 +5,7 @@ using pix_dynamic_payload_generator.net.Requests;
 using pix_dynamic_payload_generator.net.Requests.RequestModels;
 using pix_dynamic_payload_generator.net.Requests.RequestServices;
 using pix_payload_generator.net;
+using pix_payload_generator.net.Models.CobrancaModels;
 using pix_payload_generator.net.Models.PayloadModels;
 using System;
 using System.Globalization;
@@ -34,7 +35,7 @@ namespace pix_dynamic_payload_generator.net_test
         [TestMethod]
         public async Task GenerateCob()
         {
-            var cob = new CobrancaRequest
+            var cob = new CobrancaRequest(_chave: "1b0e2743-0769-4f21-b0b7-9cfddb2a5a2b")
             {
                 Calendario = new Calendario
                 {
@@ -49,7 +50,6 @@ namespace pix_dynamic_payload_generator.net_test
                 {
                     Original = "37.00"
                 },
-                Chave = "1b0e2743-0769-4f21-b0b7-9cfddb2a5a2b",
                 SolicitacaoPagador = "Serviço realizado.",
                 InfoAdicionais = new System.Collections.Generic.List<InfoAdicional>
                 {
@@ -108,6 +108,6 @@ namespace pix_dynamic_payload_generator.net_test
             var stringToQrCode = payload.GenerateStringToQrCode();
         }
 
-        
+
     }
 }

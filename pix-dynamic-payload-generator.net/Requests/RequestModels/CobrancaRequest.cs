@@ -6,6 +6,10 @@ namespace pix_dynamic_payload_generator.net.Requests.RequestModels
 {
     public class CobrancaRequest : CobrancaBaseRequest
     {
+        public CobrancaRequest(string _chave) : base(_chave)
+        {
+        }
+
         [JsonProperty("calendario")]
         public Calendario Calendario { get; set; }
 

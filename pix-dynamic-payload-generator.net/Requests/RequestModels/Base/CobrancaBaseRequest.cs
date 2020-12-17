@@ -1,14 +1,19 @@
 ﻿using Newtonsoft.Json;
 using pix_dynamic_payload_generator.net.Models;
-using pix_dynamic_payload_generator.net.Models.Cobranca;
+using pix_dynamic_payload_generator.net.Models.CobrancaModels;
+using pix_payload_generator.net.Models.CobrancaModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace pix_dynamic_payload_generator.net.Requests.RequestModels.Base
 {
-    public class CobrancaBaseRequest : CobrancaBase
+    public class CobrancaBaseRequest : Cobranca
     {
+        public CobrancaBaseRequest(string _chave) : base(_chave)
+        {
+        }
+
         ///// <summary>
         ///// O campo chave, obrigatório, determina a chave Pix registrada no DICT que será utilizada para a cobrança. Essa chave será lida pelo aplicativo do PSP do pagador para consulta ao DICT, que retornará a informação que identificará o recebedor da cobrança.
         ///// Os tipos de chave podem ser: telefone, e-mail, cpf/cnpj ou EVP.
@@ -31,5 +36,6 @@ namespace pix_dynamic_payload_generator.net.Requests.RequestModels.Base
         ///// </summary>
         //[JsonProperty("infoAdicionais")]
         //public List<InfoAdicional> InfoAdicionais { get; set; }
+
     }
 }
