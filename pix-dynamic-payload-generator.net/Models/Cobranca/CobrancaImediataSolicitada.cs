@@ -21,8 +21,5 @@ namespace pix_dynamic_payload_generator.net.Models.Cobranca
 
         [JsonProperty("loc")]
         public Loc Loc { get; set; }
-
-        [JsonProperty("valor")]
-        public Valor Valor { get; set; }
     }
 }

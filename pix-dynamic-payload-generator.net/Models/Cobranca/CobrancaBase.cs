@@ -32,5 +32,12 @@ namespace pix_dynamic_payload_generator.net.Models.Cobranca
         /// </summary>
         [JsonProperty("infoAdicionais")]
         public List<InfoAdicional> InfoAdicionais { get; set; }
+
+
+        /// <summary>
+        /// valores monetários referentes à cobrança.
+        /// </summary>
+        [JsonProperty("valor")]
+        public Valor Valor { get; set; }
     }
 }

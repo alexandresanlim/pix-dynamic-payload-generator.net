@@ -22,12 +22,12 @@ namespace pix_dynamic_payload_generator.net.Requests.RequestServices
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        public async Task<Cob> Create(CobRequest cob)
+        public async Task<Cob> Create(CobrancaRequest cob)
         {
             return await PostAsync<Cob>(cob);
         }
 
-        public async Task<Cob> Create(string txId, CobRequest cob)
+        public async Task<Cob> Create(string txId, CobrancaRequest cob)
         {
             return await PutAsync<Cob>(txId, cob);
         }

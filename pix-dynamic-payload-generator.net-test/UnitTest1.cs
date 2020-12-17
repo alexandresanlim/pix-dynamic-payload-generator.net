@@ -5,6 +5,7 @@ using pix_dynamic_payload_generator.net.Requests;
 using pix_dynamic_payload_generator.net.Requests.RequestModels;
 using pix_dynamic_payload_generator.net.Requests.RequestServices;
 using pix_payload_generator.net;
+using pix_payload_generator.net.Models.PayloadModels;
 using System;
 using System.Globalization;
 using System.Threading.Tasks;
@@ -33,7 +34,7 @@ namespace pix_dynamic_payload_generator.net_test
         [TestMethod]
         public async Task GenerateCob()
         {
-            var cob = new CobRequest
+            var cob = new CobrancaRequest
             {
                 Calendario = new Calendario
                 {
