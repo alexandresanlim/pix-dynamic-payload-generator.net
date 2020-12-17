@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using pix_payload_generator.net.Models.CobrancaModels;
+using pix_payload_generator.net.Models.PayloadModels;
 using System;
 using System.Collections.Generic;
 using System.Text;

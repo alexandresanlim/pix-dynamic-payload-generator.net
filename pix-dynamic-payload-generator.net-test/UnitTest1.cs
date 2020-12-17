@@ -83,29 +83,26 @@ namespace pix_dynamic_payload_generator.net_test
         public async Task GetDynamicQrCode()
         {
             var cobRequest = new CobRequestService();
+
             var cob = await cobRequest.GetByTxId("ea1b4dc6e8ee4508840cfa80873b4460");
 
-            var l = cob.Location;
-            var value = Convert.ToDecimal(cob.Valor.Original, new CultureInfo("en-US"));
-
-            var payload = new DynamicPayload(
-                cob.Txid,
-                new Merchant("Alexandre Lima", "Presidente Prudente"),
-                cob.Location,
-                true, value);
+            var payload = cob.ToPayload(new Merchant("Alexandre Lima", "Presidente Prudente"));
 
             var stringToQrCode = payload.GenerateStringToQrCode();
+
+            Assert.IsFalse(string.IsNullOrEmpty(stringToQrCode));
         }
 
         [TestMethod]
         public void GetStaticQrCode()
         {
-            var payload = new StaticPayload(
-                "bee05743-4291-4f3c-9259-595df1307ba1",
-                "Um-Id-Qualquer",
-                new Merchant("Alexandre Lima", "Presidente Prudente"));
+            var cobranca = new Cobranca(_chave: "bee05743-4291-4f3c-9259-595df1307ba1");
+
+            var payload = cobranca.ToPayload("O-TxtId-Aqui", new Merchant("Alexandre Sanlim", "Presidente Prudente"));
 
             var stringToQrCode = payload.GenerateStringToQrCode();
+
+            Assert.IsFalse(string.IsNullOrEmpty(stringToQrCode));
         }
 
 
