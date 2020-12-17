@@ -2,6 +2,11 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using pix_dynamic_payload_generator.net;
 using pix_dynamic_payload_generator.net.Models;
 using pix_dynamic_payload_generator.net.Requests;
+using pix_dynamic_payload_generator.net.Requests.RequestModels;
+using pix_dynamic_payload_generator.net.Requests.RequestServices;
+using pix_payload_generator.net;
+using System;
+using System.Globalization;
 using System.Threading.Tasks;
 
 namespace pix_dynamic_payload_generator.net_test
@@ -28,7 +33,7 @@ namespace pix_dynamic_payload_generator.net_test
         [TestMethod]
         public async Task GenerateCob()
         {
-            var cob = new Cob
+            var cob = new CobRequest
             {
                 Calendario = new Calendario
                 {
@@ -43,7 +48,7 @@ namespace pix_dynamic_payload_generator.net_test
                 {
                     Original = "37.00"
                 },
-                Chave = "alelima.sep@gmail.com",
+                Chave = "1b0e2743-0769-4f21-b0b7-9cfddb2a5a2b",
                 SolicitacaoPagador = "Serviço realizado.",
                 InfoAdicionais = new System.Collections.Generic.List<InfoAdicional>
                 {
@@ -61,7 +66,7 @@ namespace pix_dynamic_payload_generator.net_test
             };
 
 
-            var cobRequest = new CobRequest();
+            var cobRequest = new CobRequestService();
 
             var cb = await cobRequest.Create(System.Guid.NewGuid().ToString("N"), cob);
         }
@@ -69,8 +74,39 @@ namespace pix_dynamic_payload_generator.net_test
         [TestMethod]
         public async Task GetCobByTxId()
         {
-            var cobRequest = new CobRequest();
+            var cobRequest = new CobRequestService();
             var cb = await cobRequest.GetByTxId("2883c7672f794369a293bfb3d2ec6c69");
         }
+
+        [TestMethod]
+        public async Task GetDynamicQrCode()
+        {
+            var cobRequest = new CobRequestService();
+            var cob = await cobRequest.GetByTxId("ea1b4dc6e8ee4508840cfa80873b4460");
+
+            var l = cob.Location;
+            var value = Convert.ToDecimal(cob.Valor.Original, new CultureInfo("en-US"));
+
+            var payload = new DynamicPayload(
+                cob.Txid,
+                new Merchant("Alexandre Lima", "Presidente Prudente"),
+                cob.Location,
+                true, value);
+
+            var stringToQrCode = payload.GenerateStringToQrCode();
+        }
+
+        [TestMethod]
+        public void GetStaticQrCode()
+        {
+            var payload = new StaticPayload(
+                "bee05743-4291-4f3c-9259-595df1307ba1",
+                "Um-Id-Qualquer",
+                new Merchant("Alexandre Lima", "Presidente Prudente"));
+
+            var stringToQrCode = payload.GenerateStringToQrCode();
+        }
+
+        
     }
 }

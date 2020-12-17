@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace pix_dynamic_payload_generator.net.Requests.Base
+namespace pix_dynamic_payload_generator.net.Requests.RequestServices.Base
 {
     public class RequestBase : IRequestBase
     {

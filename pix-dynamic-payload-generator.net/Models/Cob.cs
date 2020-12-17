@@ -1,28 +1,20 @@
 ﻿using Newtonsoft.Json;
+using pix_dynamic_payload_generator.net.Models.Cobranca;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace pix_dynamic_payload_generator.net.Models
 {
-    public class Cob
+    public class Cob : CobrancaImediataSolicitada
     {
-        [JsonProperty("calendario")]
-        public Calendario Calendario { get; set; }
+        [JsonProperty("txid")]
+        public string Txid { get; set; }
 
-        [JsonProperty("devedor")]
-        public Devedor Devedor { get; set; }
+        [JsonProperty("revisao")]
+        public int Revisao { get; set; }
 
-        [JsonProperty("valor")]
-        public Valor Valor { get; set; }
-
-        [JsonProperty("chave")]
-        public string Chave { get; set; }
-
-        [JsonProperty("solicitacaoPagador")]
-        public string SolicitacaoPagador { get; set; }
-
-        [JsonProperty("infoAdicionais")]
-        public List<InfoAdicional> InfoAdicionais { get; set; }
+        [JsonProperty("status")]
+        public string Status { get; set; }
     }
 }

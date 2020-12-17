@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using pix_dynamic_payload_generator.net.Models;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -31,7 +32,7 @@ namespace pix_dynamic_payload_generator.net
 
         public static X509Certificate2 Certificate => new X509Certificate2(CertificatePath);
 
-        private static Responses.TokenResponse LastToken { get; set; }
+        private static Token LastToken { get; set; }
 
         public StartConfig(string _baseUrl, string _clientId, string _clientSecret, string _certificatePath)
         {
@@ -49,7 +50,7 @@ namespace pix_dynamic_payload_generator.net
         //    CertificatePath = _certificatePath;
         //}
 
-        public static Responses.TokenResponse GetToken()
+        public static Token GetToken()
         {
             if (LastToken != null)
                 return LastToken;
@@ -78,7 +79,7 @@ namespace pix_dynamic_payload_generator.net
             using (var streamReader = new System.IO.StreamReader(httpResponse.GetResponseStream()))
             {
                 var result = streamReader.ReadToEnd();
-                LastToken = JsonConvert.DeserializeObject<Responses.TokenResponse>(result);
+                LastToken = JsonConvert.DeserializeObject<Token>(result);
             }
 
             return LastToken;
