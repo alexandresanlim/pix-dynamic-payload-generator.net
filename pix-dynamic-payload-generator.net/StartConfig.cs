@@ -16,7 +16,7 @@ namespace pix_dynamic_payload_generator.net
         public static string BaseUrl { get; private set; }
 
         /// <summary>
-        /// Caminho absoluto do certificado
+        /// Caminho absoluto do certificado marcado como copy-always
         /// </summary>
         public static string CertificatePath { get; private set; }
 
