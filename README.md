@@ -32,6 +32,10 @@ Este carrega as características de uma fatura de cobrança.
 
 ### Instale [este pacote](https://www.nuget.org/packages/pix-dynamic-payload-generator.net) na sua aplicação e inicie:
 
+```
+Install-Package pix-dynamic-payload-generator.net
+```
+
 ```csharp
  new StartConfig(
        _baseUrl: "https://api-pix-h.seupsp.com.br",
@@ -133,6 +137,10 @@ Este carrega as característica da maquininha de cartão
    <summary> Como Gerar?</summary>
 
 ### Instale [este pacote](https://www.nuget.org/packages/pix-dynamic-payload-generator.net) na sua aplicação e inicie:
+
+```
+Install-Package pix-dynamic-payload-generator.net
+```
 
 ```csharp
  new StartConfig(
