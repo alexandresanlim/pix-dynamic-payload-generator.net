@@ -41,7 +41,7 @@ Este carrega as característica da maquininha de cartão
 Caso necessite somente das funções apresentadas em QrCode estático, apenas [este pacote](https://github.com/alexandresanlim/pix-payload-generator.net) será suficiente.
 
 <details>
-  <summary> Como Gerar?</summary>
+   <summary> Como Gerar?</summary>
 
 ### Instale [este pacote](https://www.nuget.org/packages/pix-dynamic-payload-generator.net) na sua aplicação.
 
