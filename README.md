@@ -186,7 +186,30 @@ Retornará uma string como esta:
 
 </details>
 
-# Informações Extra
+# Testes
 
+- Este projeto possuí [testes](https://github.com/alexandresanlim/pix-dynamic-payload-generator.net/blob/master/pix-dynamic-payload-generator.net-test/UnitTest1.cs) onde poderam ser usados para fazer os requests disponibilizados pelo seu PSP.
+
+Para isso basta incluir o certificado disponibilidzado pelo seu PSP na raiz do projeto, nas propriedades do mesmo marcar o "Copy to output directory" como "Copy always".
+
+Em seguida iniciar seus dados de autenticação no construtor:
+
+```csharp
+public UnitTest1()
+{
+   new StartConfig(
+       _baseUrl: "https://api-pix-h.seupsp.com.br",
+       _clientId: "client-id-fornecido-pelo-psp",
+       _clientSecret: "client-secret-fornecido-pelo-psp",
+      _certificate: new System.Security.Cryptography.X509Certificates.X509Certificate2(@".\certificado.p12")
+       );
+}
+```
+Use conforme sua necessidade.
+
+- Você poderá usar [este site](https://pix.nascent.com.br/tools/pix-qr-decoder/) para validar e visualizar o QrCode gerado
+
+
+# Informações Extra
 - Caso necessite somente das funções apresentadas em QrCode estático, apenas [este pacote](https://github.com/alexandresanlim/pix-payload-generator.net) será o suficiente.
-- Você pode usar [este site](https://pix.nascent.com.br/tools/pix-qr-decoder/) para validar e visualizar o QrCode gerado
+
