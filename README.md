@@ -188,7 +188,7 @@ Retornará uma string como esta:
 
 # Testes
 
-- Este projeto possuí [testes](https://github.com/alexandresanlim/pix-dynamic-payload-generator.net/blob/master/pix-dynamic-payload-generator.net-test/UnitTest1.cs) onde poderam ser usados para fazer os requests disponibilizados pelo seu PSP.
+- Este projeto possui [testes](https://github.com/alexandresanlim/pix-dynamic-payload-generator.net/blob/master/pix-dynamic-payload-generator.net-test/UnitTest1.cs) onde poderam ser usados para fazer os requests disponibilizados pelo seu PSP.
 
 Para isso basta incluir o certificado disponibilidzado pelo seu PSP na raiz do projeto, nas propriedades do mesmo marcar o "Copy to output directory" como "Copy always".
 
