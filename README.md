@@ -38,7 +38,7 @@ Este carrega as característica da maquininha de cartão
 - Não é possível recuperar informações do status de pagamento
 - Não é possiíel usar quaisquer serviços da [api oficial do pix](https://bacen.github.io/pix-api/#/Pix/get_pix)
 
-Caso necessite somente das funções apresentadas em QrCode estático, apenas [este pacote](https://github.com/alexandresanlim/pix-payload-generator.net) será suficiente.
+Caso necessite somente das funções apresentadas em QrCode estático, apenas [este pacote](https://github.com/alexandresanlim/pix-payload-generator.net) será o suficiente.
 
 ## Gerando o QrCode estático
 <details>
