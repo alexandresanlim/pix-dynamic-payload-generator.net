@@ -16,10 +16,4 @@
     <PackageReference Include="pix-payload-generator.net" Version="1.0.10" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Update="certificado.p12">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
 </Project>

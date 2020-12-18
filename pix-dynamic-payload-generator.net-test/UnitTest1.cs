@@ -19,10 +19,9 @@ namespace pix_dynamic_payload_generator.net_test
         public UnitTest1()
         {
             new StartConfig(
-                _baseUrl: "https://api-pix-h.gerencianet.com.br",
-                _clientId: "Client_Id_51d92e9836716a4ab9b3ec1d9d34f6644ac28d69",
-                _clientSecret: "Client_Secret_0ab77acbf2bde2cc40a1162f596846fa75ff710e",
-               // _certificatePath: @"caminho-absoluto-fornecido-pelo-psp-ex:-.\certificado.p12-lembre-se-de-marcar-como-copy-always"
+                _baseUrl: "https://api-pix-h.seupsp.com.br",
+                _clientId: "client-id-fornecido-pelo-psp",
+                _clientSecret: "client-secret-fornecido-pelo-psp",
                _certificate: new System.Security.Cryptography.X509Certificates.X509Certificate2(@".\certificado.p12")
                 );
         }
@@ -79,8 +78,8 @@ namespace pix_dynamic_payload_generator.net_test
                 },
                 Devedor = new Devedor
                 {
-                    Cnpj = "12345678000195",
-                    Nome = "Empresa de Serviços SA",
+                    Cpf = "12345678909",
+                    Nome = "Francisco da Silva",
                 },
                 Valor = new Valor
                 {
@@ -105,6 +104,8 @@ namespace pix_dynamic_payload_generator.net_test
             var cobRequest = new CobRequestService();
 
             var cb = await cobRequest.Create(System.Guid.NewGuid().ToString("N"), cob);
+
+            Assert.IsFalse(string.IsNullOrEmpty(cb?.Txid));
         }
 
         [TestMethod]
@@ -112,6 +113,8 @@ namespace pix_dynamic_payload_generator.net_test
         {
             var cobRequest = new CobRequestService();
             var cb = await cobRequest.GetByTxId("2883c7672f794369a293bfb3d2ec6c69");
+
+            Assert.IsFalse(string.IsNullOrEmpty(cb?.Txid));
         }
 
         #endregion
@@ -170,6 +173,8 @@ namespace pix_dynamic_payload_generator.net_test
             var cobRequest = new CobVRequestService();
 
             var cb = await cobRequest.Create(System.Guid.NewGuid().ToString("N"), cob);
+
+            Assert.IsFalse(string.IsNullOrEmpty(cb?.Txid));
         }
 
         #endregion
