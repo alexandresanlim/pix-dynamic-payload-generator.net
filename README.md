@@ -40,6 +40,7 @@ Este carrega as característica da maquininha de cartão
 
 Caso necessite somente das funções apresentadas em QrCode estático, apenas [este pacote](https://github.com/alexandresanlim/pix-payload-generator.net) será suficiente.
 
+## Gerando o QrCode estático
 <details>
    <summary> Como Gerar?</summary>
 
