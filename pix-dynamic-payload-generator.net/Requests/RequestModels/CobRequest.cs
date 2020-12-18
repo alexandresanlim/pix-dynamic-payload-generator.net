@@ -4,9 +4,9 @@ using pix_dynamic_payload_generator.net.Requests.RequestModels.Base;
 
 namespace pix_dynamic_payload_generator.net.Requests.RequestModels
 {
-    public class CobrancaRequest : CobrancaBaseRequest
+    public class CobRequest : CobBaseRequest
     {
-        public CobrancaRequest(string _chave) : base(_chave)
+        public CobRequest(string _chave) : base(_chave)
         {
         }
 

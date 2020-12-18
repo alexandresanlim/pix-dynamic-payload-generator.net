@@ -10,6 +10,9 @@ namespace pix_dynamic_payload_generator.net.Models
         [JsonProperty("cnpj")]
         public string Cnpj { get; set; }
 
+        [JsonProperty("cpf")]
+        public string Cpf { get; set; }
+
         [JsonProperty("nome")]
         public string Nome { get; set; }
     }

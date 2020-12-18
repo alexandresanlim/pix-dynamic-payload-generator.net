@@ -19,31 +19,59 @@ namespace pix_dynamic_payload_generator.net_test
         public UnitTest1()
         {
             new StartConfig(
-                _baseUrl: "https://api-pix.gerencianet.com.br",
-                _clientId: "Client_Id_505c65a6e2cd5e048d583b80f8da2356a7230275",
-                _clientSecret: "Client_Secret_4bd8c21a1107a627c2db3a7dcf1c4180ce1a040a",
+                _baseUrl: "https://api-pix-h.gerencianet.com.br",
+                _clientId: "Client_Id_51d92e9836716a4ab9b3ec1d9d34f6644ac28d69",
+                _clientSecret: "Client_Secret_0ab77acbf2bde2cc40a1162f596846fa75ff710e",
                // _certificatePath: @"caminho-absoluto-fornecido-pelo-psp-ex:-.\certificado.p12-lembre-se-de-marcar-como-copy-always"
                _certificate: new System.Security.Cryptography.X509Certificates.X509Certificate2(@".\certificado.p12")
                 );
         }
 
+        #region OAuth
+
         [TestMethod]
-        public void GetCertificate()
+        public void OAuthGetCertificate()
         {
             var certificate = StartConfig.Certificate;
         }
 
         [TestMethod]
-        public void GenerateToken()
+        public void OAuthGenerateToken()
         {
             var token = StartConfig.GetToken();
             Assert.IsFalse(string.IsNullOrEmpty(token?.AccessToken));
         }
 
+        #endregion
+
+        #region WebHook
+
         [TestMethod]
-        public async Task GenerateCob()
+        public async Task WebhookCreate()
         {
-            var cob = new CobrancaRequest(_chave: "1b0e2743-0769-4f21-b0b7-9cfddb2a5a2b")
+            var request = new WebHookRequestService();
+            var webHookRequest = new WebHookRequest
+            {
+                 WebhookUrl = "https://pix.example.com/api/webhook/"
+            };
+            var success = await request.Create("key", webHookRequest);
+        }
+
+        [TestMethod]
+        public async Task WebhookGetByKey()
+        {
+            var request = new WebHookRequestService();
+            var wh = await request.GetByKey("key");
+        }
+
+        #endregion
+
+        #region Cob
+
+        [TestMethod]
+        public async Task CobCreate()
+        {
+            var cob = new CobRequest(_chave: "1b0e2743-0769-4f21-b0b7-9cfddb2a5a2b")
             {
                 Calendario = new Calendario
                 {
@@ -74,21 +102,93 @@ namespace pix_dynamic_payload_generator.net_test
                 }
             };
 
-
             var cobRequest = new CobRequestService();
 
             var cb = await cobRequest.Create(System.Guid.NewGuid().ToString("N"), cob);
         }
 
         [TestMethod]
-        public async Task GetCobByTxId()
+        public async Task CobGetByTxId()
         {
             var cobRequest = new CobRequestService();
             var cb = await cobRequest.GetByTxId("2883c7672f794369a293bfb3d2ec6c69");
         }
 
+        #endregion
+
+        #region CobV
+
         [TestMethod]
-        public async Task GetDynamicQrCode()
+        public async Task CobVCreate()
+        {
+            var cob = new CobVRequest
+            {
+                Chave = "1b0e2743-0769-4f21-b0b7-9cfddb2a5a2b",
+                Calendario = new CalendarioCobV
+                {
+                    DataDeVencimento = "2020-12-31",
+                    ValidadeAposVencimento = 30
+                },
+                Loc = new LocCobV
+                {
+                    Id = 789
+                },
+                Devedor = new DevedorCobV
+                {
+                    Logradouro = "Alameda Souza, Numero 80, Bairro Braz",
+                    Cidade = "Recife",
+                    Uf = "PE",
+                    Cep = "70011750",
+                    Cpf = "12345678909",
+                    Nome = "Francisco da Silva"
+                },
+                ValorCobV = new ValorCobV
+                {
+                    Original = "123.45",
+                    Multa = new Multa
+                    {
+                        Modalidade = "2",
+                        ValorPerc = "15.00"
+                    },
+                    Juros = new Juros
+                    {
+                        Modalidade = "2",
+                        ValorPerc = "2.00"
+                    },
+                    Desconto = new Desconto
+                    {
+                        Modalidade = "1",
+                        DescontoDataFixa = new System.Collections.Generic.List<DescontoDataFixa>
+                        {
+                            new DescontoDataFixa{ Data = "2020-11-30",ValorPerc = "30.00"}
+                        }
+                    }
+                },
+                SolicitacaoPagador = "Cobrança dos serviços prestados."
+            };
+
+            var cobRequest = new CobVRequestService();
+
+            var cb = await cobRequest.Create(System.Guid.NewGuid().ToString("N"), cob);
+        }
+
+        #endregion
+
+        #region Pix
+
+        [TestMethod]
+        public async Task CobGetByE2eid()
+        {
+            var request = new PixRequestService();
+            var cb = await request.GetByE2eid("e2eid");
+        }
+
+        #endregion
+
+        #region QrCodes
+
+        [TestMethod]
+        public async Task QrCodeGetDynamic()
         {
             var cobRequest = new CobRequestService();
 
@@ -102,7 +202,7 @@ namespace pix_dynamic_payload_generator.net_test
         }
 
         [TestMethod]
-        public void GetStaticQrCode()
+        public void QrCodeGetStatic()
         {
             var cobranca = new Cobranca(_chave: "bee05743-4291-4f3c-9259-595df1307ba1");
 
@@ -113,6 +213,6 @@ namespace pix_dynamic_payload_generator.net_test
             Assert.IsFalse(string.IsNullOrEmpty(stringToQrCode));
         }
 
-
+        #endregion
     }
 }

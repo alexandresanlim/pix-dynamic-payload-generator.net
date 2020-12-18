@@ -8,9 +8,9 @@ using System.Text;
 
 namespace pix_dynamic_payload_generator.net.Requests.RequestModels.Base
 {
-    public class CobrancaBaseRequest : Cobranca
+    public class CobBaseRequest : Cobranca
     {
-        public CobrancaBaseRequest(string _chave) : base(_chave)
+        public CobBaseRequest(string _chave) : base(_chave)
         {
         }
 

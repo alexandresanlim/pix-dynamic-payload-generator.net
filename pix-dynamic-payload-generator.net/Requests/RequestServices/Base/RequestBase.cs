@@ -113,13 +113,13 @@ namespace pix_dynamic_payload_generator.net.Requests.RequestServices.Base
         /// <param name="data"></param>
         /// <param name="headers"></param>
         /// <returns></returns>
-        public async Task<T> PutAsync<T>(string txId, object data, Dictionary<string, string> headers = null)
+        public async Task<T> PutAsync<T>(string parameterId, object data, Dictionary<string, string> headers = null)
         {
             try
             {
-                var b = GetUrlRequest() + "/" + txId;
+                var urlWithParameter = GetUrlRequest() + "/" + parameterId;
 
-                var response = await SendRequestAsync(HttpMethod.Put, b, data, null, headers).ConfigureAwait(false);
+                var response = await SendRequestAsync(HttpMethod.Put, urlWithParameter, data, null, headers).ConfigureAwait(false);
 
                 return await ProcessResponse<T>(response).ConfigureAwait(false);
             }
