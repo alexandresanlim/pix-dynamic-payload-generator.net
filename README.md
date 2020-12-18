@@ -17,7 +17,7 @@ Este carrega as características de um boleto de cobrança.
 
 #### ✅ Pontos fortes:
 - É possível recuperar informações do status de pagamento
-- É possiíel usar serviços da [api oficial do pix](https://bacen.github.io/pix-api/#/Pix/get_pix)
+- É possível usar todos os serviços da [api oficial do pix](https://bacen.github.io/pix-api/#/Pix/get_pix) disponibilizadas pelo seu PSP
 
 #### ❌ Pontos fracos:
 - Requer um PSP
@@ -36,7 +36,7 @@ Este carrega as característica da maquininha de cartão
 
 #### ❌ Pontos fracos:
 - Não é possível recuperar informações do status de pagamento
-- Não é possiíel usar serviços da [api oficial do pix](https://bacen.github.io/pix-api/#/Pix/get_pix)
+- Não é possiíel usar quaisquer serviços da [api oficial do pix](https://bacen.github.io/pix-api/#/Pix/get_pix)
 
 # Como usar?
 
