@@ -117,8 +117,6 @@ Este carrega as característica da maquininha de cartão
 - Não é possível recuperar informações do status de pagamento
 - Não é possiíel usar quaisquer serviços da [api oficial do pix](https://bacen.github.io/pix-api/#/Pix/get_pix)
 
-Caso necessite somente das funções apresentadas em QrCode estático, apenas [este pacote](https://github.com/alexandresanlim/pix-payload-generator.net) será o suficiente.
-
 <details>
    <summary> Como Gerar?</summary>
 
@@ -170,3 +168,7 @@ Retornará uma string como esta:
 
 </details>
 
+# Informações extra
+
+- Caso necessite somente das funções apresentadas em QrCode estático, apenas [este pacote](https://github.com/alexandresanlim/pix-payload-generator.net) será o suficiente.
+- Você pode usar [este site](https://pix.nascent.com.br/tools/pix-qr-decoder/) para validar e visualizar o QrCode gerado
