@@ -24,7 +24,6 @@ Este carrega as características de uma fatura de cobrança.
 - Necessita de autenticação
 - Necessita de conexão com a internet
 
-## Gerando o QrCode dinâmico
 <details>
    <summary> Como Gerar?</summary>
 
@@ -105,7 +104,6 @@ Retornará uma string como esta:
 
 
 
-
 ## QrCode estático
 Ideal para cobranças simples, sem a necessidade do acompanhamento de status ou outros tipos de registros.
 Este carrega as característica da maquininha de cartão
@@ -121,7 +119,6 @@ Este carrega as característica da maquininha de cartão
 
 Caso necessite somente das funções apresentadas em QrCode estático, apenas [este pacote](https://github.com/alexandresanlim/pix-payload-generator.net) será o suficiente.
 
-## Gerando o QrCode estático
 <details>
    <summary> Como Gerar?</summary>
 
