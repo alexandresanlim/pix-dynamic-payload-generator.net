@@ -11,14 +11,17 @@ Este pacote auxilia na geração de payloads para usar em QRCode estático ou di
 # ⚠ Informações importantes (limitações)
 
 ### Para a geração de QrCode dinâmico:
-#### Pontos fracos:
+
+#### ✅ Pontos fortes:
+- É possível recuperar informações do status de pagamento
+- É possiíel usar serviços da [api oficial do pix](https://bacen.github.io/pix-api/#/Pix/get_pix)
+
+#### ❌ Pontos fracos:
 - Requer um PSP
 - Necessita de autenticação
 - Necessita de conexão com a internet
 
-#### Pontos fortes:
-- É possível recuperar informações do status de pagamento
-- É possiíel usar serviços da [api oficial do pix](https://bacen.github.io/pix-api/#/Pix/get_pix)
+
 
 ### Para a geração de QrCode estático:
 #### Pontos fortes:
