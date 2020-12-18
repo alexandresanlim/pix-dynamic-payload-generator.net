@@ -19,11 +19,19 @@ namespace pix_dynamic_payload_generator.net_test
         public UnitTest1()
         {
             new StartConfig(
-                _baseUrl: "https://api-pix.seupsp.com.br",
-                _clientId: "seu-client-id-informado-pelo-psp",
-                _clientSecret: "seu-client-secret-informado-pelo-psp",
-                _certificatePath: @"caminho-absoluto-fornecido-pelo-psp-ex:-.\certificado.p12-lembre-se-de-marcar-como-copy-always"
+                _baseUrl: "https://api-pix.gerencianet.com.br",
+                _clientId: "Client_Id_505c65a6e2cd5e048d583b80f8da2356a7230275",
+                _clientSecret: "Client_Secret_4bd8c21a1107a627c2db3a7dcf1c4180ce1a040a",
+               // _certificatePath: @"caminho-absoluto-fornecido-pelo-psp-ex:-.\certificado.p12-lembre-se-de-marcar-como-copy-always"
+               _certificatePath: @".\certificado.p12"
                 );
+        }
+
+        [TestMethod]
+        public void GenerateCertificate()
+        {
+            var a = AppDomain.CurrentDomain.BaseDirectory;
+            var certificate = StartConfig.Certificate;
         }
 
         [TestMethod]
@@ -48,7 +56,7 @@ namespace pix_dynamic_payload_generator.net_test
                 },
                 Valor = new Valor
                 {
-                    Original = "5.00"
+                    Original = "1.00"
                 },
                 SolicitacaoPagador = "Serviço realizado.",
                 InfoAdicionais = new System.Collections.Generic.List<InfoAdicional>
@@ -84,7 +92,7 @@ namespace pix_dynamic_payload_generator.net_test
         {
             var cobRequest = new CobRequestService();
 
-            var cob = await cobRequest.GetByTxId("2883c7672f794369a293bfb3d2ec6c69");
+            var cob = await cobRequest.GetByTxId("496b0fd872ba49a0ad5b55572debdabf");
 
             var payload = cob.ToPayload(new Merchant("Alexandre Lima", "Presidente Prudente"));
 

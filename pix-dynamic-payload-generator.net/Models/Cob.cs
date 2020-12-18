@@ -3,6 +3,7 @@ using pix_dynamic_payload_generator.net.Models.CobrancaModels;
 using pix_payload_generator.net.Models.PayloadModels;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace pix_dynamic_payload_generator.net.Models
@@ -21,6 +22,49 @@ namespace pix_dynamic_payload_generator.net.Models
 
         [JsonProperty("status")]
         public string Status { get; set; }
+
+        [JsonProperty("pix")]
+        public List<Pix> Pix { get; set; }
+
+        public CobStatus StatusOnEnum
+        {
+            get
+            {
+                CobStatus result;
+                return Enum.TryParse<CobStatus>(Status, true, out result) ? result : CobStatus.NOT_FOUND;
+            }
+        }
+
+        public PaymenStatus StatusPagamento
+        {
+            get
+            {
+                if (StatusOnEnum == CobStatus.NOT_FOUND)
+                    return PaymenStatus.NOT_FOUND;
+
+                if (StatusOnEnum == CobStatus.ATIVA)
+                    return PaymenStatus.NAO_PAGO;
+
+                return Pix.Sum(x => x.ValorToDecimal) == Valor.ToDecimal ? PaymenStatus.PAGO_TOTALMENTE : PaymenStatus.PAGO_PARCIALMENTE;
+            }
+        }
+    }
+
+    public enum CobStatus
+    {
+        NOT_FOUND = -1,
+        ATIVA,
+        CONCLUIDA,
+        REMOVIDA_PELO_USUARIO_RECEBEDOR,
+        REMOVIDA_PELO_PSP
+    }
+
+    public enum PaymenStatus
+    {
+        NOT_FOUND = -1,
+        NAO_PAGO,
+        PAGO_PARCIALMENTE,
+        PAGO_TOTALMENTE
     }
 
     public static class CobExtention
