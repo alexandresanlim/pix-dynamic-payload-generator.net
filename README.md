@@ -12,10 +12,12 @@ Este pacote auxilia na geração de payloads para usar em QRCode estático ou di
 
 ### Para a geração de QrCode dinâmico:
 - Requer um PSP
+- Necessita de autenticação
 - Necessita de conexão com a internet
 
 ### Para a geração de QrCode estático:
 - Não é possivel recuperar informações do status de pagamento
+- Não é possivel usar qualquer serviço da [api oficial do pix](https://bacen.github.io/pix-api/#/Pix/get_pix)
 
 # Como usar?
 
