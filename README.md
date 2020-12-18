@@ -212,6 +212,6 @@ Use conforme sua necessidade.
 
 Você poderá usar [este site](https://pix.nascent.com.br/tools/pix-qr-decoder/) para validar e visualizar os QrCoded gerados
 
-# Informações Extra
-- Caso necessite somente das funções apresentadas em QrCode estático, apenas [este pacote](https://github.com/alexandresanlim/pix-payload-generator.net) será o suficiente.
+# Extra
+Caso necessite somente das funções apresentadas em QrCode estático, apenas [este pacote](https://github.com/alexandresanlim/pix-payload-generator.net) será o suficiente.
 
