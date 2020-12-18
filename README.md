@@ -83,19 +83,19 @@ var stringToQrCode = payload.GenerateStringToQrCode();
 
 2 - Gerar o Payload a partir da cobrança criada
 ```csharp
-var payload = cobranca.ToPayload("O-TxtId-Aqui", new Merchant("Alexandre Sanlim", "Presidente Prudente"));
+ var payload = cob.ToPayload(new Merchant("Alexandre Lima", "Presidente Prudente"));
 ```
 
 3 - Pegar uma string para setar em um QrCode a aprtir do Payload gerado
 
 ```csharp
-var stringToQrCode = payload.GenerateStringToQrCode();
+ var stringToQrCode = payload.GenerateStringToQrCode();
 ```
 
 Retornará uma string como esta:
 
 ```
-00020126580014br.gov.bcb.pix0136bee05743-4291-4f3c-9259-595df1307ba1520400005303986540510.005802BR5914Alexandre Lima6019Presidente Prudente62180514Um-Id-Qualquer6304D475
+00020126880014br.gov.bcb.pix2566qrcodes-pix.gerencianet.com.br/v2/47cfcf6092c342e7bf2a24036d03ca9952040000530398654041.005802BR5914Alexandre Lima6019Presidente Prudente62290525496b0fd872ba49a0ad5b55572630459AE
 ```
 
 4 - Por fim, basta setar em um QRCode! ;)
