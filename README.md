@@ -93,12 +93,12 @@ var stringToQrCode = payload.GenerateStringToQrCode();
 
 ```
 
-2 - Gerar o Payload a partir da cobrança criada
+2 - Gerar o Payload a partir da cobrança gerada
 ```csharp
  var payload = cob.ToPayload(new Merchant("Alexandre Lima", "Presidente Prudente"));
 ```
 
-3 - Pegar uma string para setar em um QrCode a aprtir do Payload gerado
+3 - Pegar uma string para setar em um QrCode a partir do Payload gerado
 
 ```csharp
  var stringToQrCode = payload.GenerateStringToQrCode();
@@ -171,7 +171,7 @@ Cobranca cobranca = new Cobranca(_chave: "bee05743-4291-4f3c-9259-595df1307ba1")
 var payload = cobranca.ToPayload("O-TxtId-Aqui", new Merchant("Alexandre Sanlim", "Presidente Prudente"));
 ```
 
-3 - Pegar uma string para setar em um QrCode a aprtir do Payload gerado
+3 - Pegar uma string para setar em um QrCode a partir do Payload gerado
 
 ```csharp
 var stringToQrCode = payload.GenerateStringToQrCode();
