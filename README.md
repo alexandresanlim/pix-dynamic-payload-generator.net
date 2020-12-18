@@ -27,7 +27,16 @@ Este carrega as características de uma fatura de cobrança.
 <details>
    <summary> Como Gerar?</summary>
 
-### Instale [este pacote](https://www.nuget.org/packages/pix-dynamic-payload-generator.net) na sua aplicação.
+### Instale [este pacote](https://www.nuget.org/packages/pix-dynamic-payload-generator.net) na sua aplicação e inicie:
+
+```csharp
+ new StartConfig(
+                _baseUrl: "https://api-pix-h.seupsp.com.br",
+                _clientId: "client-id-fornecido-pelo-psp",
+                _clientSecret: "client-secret-fornecido-pelo-psp",
+               _certificate: new System.Security.Cryptography.X509Certificates.X509Certificate2(@".\certificado.p12")
+                );
+```
 
 1 - Crie uma cobrança
 
@@ -120,7 +129,16 @@ Este carrega as característica da maquininha de cartão
 <details>
    <summary> Como Gerar?</summary>
 
-### Instale [este pacote](https://www.nuget.org/packages/pix-dynamic-payload-generator.net) na sua aplicação.
+### Instale [este pacote](https://www.nuget.org/packages/pix-dynamic-payload-generator.net) na sua aplicação e inicie:
+
+```csharp
+ new StartConfig(
+                _baseUrl: "https://api-pix-h.seupsp.com.br",
+                _clientId: "client-id-fornecido-pelo-psp",
+                _clientSecret: "client-secret-fornecido-pelo-psp",
+               _certificate: new System.Security.Cryptography.X509Certificates.X509Certificate2(@".\certificado.p12")
+                );
+```
 
 1 - Crie uma instância de Cobrança usando como parâmetros a chave pix, em seguida converta para um Payload passando como parâmetro o id de identificação da transação e informações do títular da conta.
 
