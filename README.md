@@ -11,7 +11,7 @@ Este pacote auxilia na geração de payloads para usar em QRCode estático ou di
 # ⚠ Informações importantes e limitações
 Antes de começar, entenda um pouco sobre as diferenças dos dois tipos de geração de QrCodes disponibilizadas pelo Bacen ("QrCode Estatico" e "QrCode Dinâmico")
 
-## - QrCode dinâmico
+## QrCode dinâmico
 Ideal para sistemas ERP e ou onde necessita do acompanhamento do status de cada cobrança, vinculo com pedidos, inclusão de multas e juros e outros.
 Este carrega as características de um boleto de cobrança.
 
