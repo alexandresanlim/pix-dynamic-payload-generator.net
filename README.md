@@ -42,4 +42,51 @@ Caso necessite somente das funções apresentadas em QrCode estático, apenas [e
 
 # Como usar?
 
-### 1 - Instale [este pacote](https://www.nuget.org/packages/pix-dynamic-payload-generator.net) na sua aplicação.
+### Instale [este pacote](https://www.nuget.org/packages/pix-dynamic-payload-generator.net) na sua aplicação.
+
+# Gerandor QrCode Estático
+
+### 1 - Crie uma instância de Cobrança usando como parâmetros a chave pix, em seguida converta para um Payload passando como parâmetro o id de identificação da transação e informações do títular da conta.
+
+```csharp
+var cobranca = new Cobranca(_chave: "bee05743-4291-4f3c-9259-595df1307ba1");
+```
+
+#### Você pode optar por adicionar mais algumas informações (não obrigatório):
+- Valor (Caso não informado, ficará livre para o pagador digitar o valor);
+- Descriçao (Caso informado, aparecerá no momento do pagamento).
+
+Exemplo, definindo o valor de R$ 15,00 e descrição "Pagamento do pedido X":
+```csharp
+Cobranca cobranca = new Cobranca(_chave: "bee05743-4291-4f3c-9259-595df1307ba1")
+{
+    SolicitacaoPagador = "Pagamento do Pedido X",
+    Valor = new Valor
+    {
+        Original = "15.00"
+    }
+};
+
+```
+
+### 2 - Gerar o Payload a partir da cobrança criada
+```csharp
+var payload = cobranca.ToPayload("O-TxtId-Aqui", new Merchant("Alexandre Sanlim", "Presidente Prudente"));
+```
+
+### 3 - Pegar uma string para setar em um QrCode a aprtir do Payload gerado
+
+```csharp
+var stringToQrCode = payload.GenerateStringToQrCode();
+```
+
+Retornará uma string como esta:
+
+```
+00020126580014br.gov.bcb.pix0136bee05743-4291-4f3c-9259-595df1307ba1520400005303986540510.005802BR5914Alexandre Lima6019Presidente Prudente62180514Um-Id-Qualquer6304D475
+```
+
+### 4 - Por fim, basta setar em um QRCode! ;)
+
+<img src='https://dyn-qrcode.vercel.app/api?url=00020126580014br.gov.bcb.pix0136bee05743-4291-4f3c-9259-595df1307ba1520400005303986540510.005802BR5914Alexandre%20Lima6019Presidente%20Prudente62180514Um-Id-Qualquer6304D475' />
+
