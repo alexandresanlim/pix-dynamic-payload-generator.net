@@ -127,7 +127,7 @@ Este carrega as característica da maquininha de cartão
 
 #### ❌ Pontos fracos:
 - Não é possível recuperar informações do status de pagamento
-- Não é possiíel usar quaisquer serviços da [api oficial do pix](https://bacen.github.io/pix-api/#/Pix/get_pix)
+- Não é possível usar quaisquer serviços da [api oficial do pix](https://bacen.github.io/pix-api/#/Pix/get_pix)
 
 <details>
    <summary> Como Gerar?</summary>
