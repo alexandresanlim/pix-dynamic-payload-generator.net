@@ -30,8 +30,6 @@ Este carrega as características de uma fatura de cobrança.
 
 ### Instale [este pacote](https://www.nuget.org/packages/pix-dynamic-payload-generator.net) na sua aplicação.
 
-# Gerandor QrCode Dinâmico
-
 1 - Crie uma cobrança
 
 ```csharp
@@ -128,8 +126,6 @@ Caso necessite somente das funções apresentadas em QrCode estático, apenas [e
    <summary> Como Gerar?</summary>
 
 ### Instale [este pacote](https://www.nuget.org/packages/pix-dynamic-payload-generator.net) na sua aplicação.
-
-# Gerandor QrCode Estático
 
 1 - Crie uma instância de Cobrança usando como parâmetros a chave pix, em seguida converta para um Payload passando como parâmetro o id de identificação da transação e informações do títular da conta.
 
