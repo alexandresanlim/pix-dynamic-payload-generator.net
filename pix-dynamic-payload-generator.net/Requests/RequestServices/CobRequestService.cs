@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace pix_dynamic_payload_generator.net.Requests.RequestServices
 {
+    /// <summary>
+    /// Reúne endpoints destinados a lidar com gerenciamento de cobranças imediatas.
+    /// </summary>
     public class CobRequestService : RequestBase
     {
         public CobRequestService()
@@ -18,20 +21,31 @@ namespace pix_dynamic_payload_generator.net.Requests.RequestServices
         }
 
         /// <summary>
-        /// 
+        /// Criar cobrança imediata
         /// </summary>
-        /// <param name="request"></param>
+        /// <param name="cob"></param>
         /// <returns></returns>
         public async Task<Cob> Create(CobrancaRequest cob)
         {
             return await PostAsync<Cob>(cob);
         }
 
+        /// <summary>
+        /// Criar cobrança imediata usando um identificador
+        /// </summary>
+        /// <param name="txId"></param>
+        /// <param name="cob"></param>
+        /// <returns></returns>
         public async Task<Cob> Create(string txId, CobrancaRequest cob)
         {
             return await PutAsync<Cob>(txId, cob);
         }
 
+        /// <summary>
+        /// Consultar cobrança imediata usando o txId
+        /// </summary>
+        /// <param name="txId"></param>
+        /// <returns></returns>
         public async Task<Cob> GetByTxId(string txId)
         {
             return await GetAsync<Cob>(txId);

@@ -18,7 +18,7 @@ namespace pix_dynamic_payload_generator.net
         /// <summary>
         /// Caminho absoluto do certificado marcado como copy-always
         /// </summary>
-        public static string CertificatePath { get; private set; }
+        //public static string CertificatePath { get; private set; }
 
         /// <summary>
         /// ClientId do oauth 2 do PSP
@@ -30,16 +30,16 @@ namespace pix_dynamic_payload_generator.net
         /// </summary>
         public static string ClientSecret { get; private set; }
 
-        public static X509Certificate2 Certificate => new X509Certificate2(CertificatePath);
+        public static X509Certificate2 Certificate { get; private set; }
 
         private static Token LastToken { get; set; }
 
-        public StartConfig(string _baseUrl, string _clientId, string _clientSecret, string _certificatePath)
+        public StartConfig(string _baseUrl, string _clientId, string _clientSecret, X509Certificate2 _certificate)
         {
             BaseUrl = _baseUrl;
             ClientId = _clientId;
             ClientSecret = _clientSecret;
-            CertificatePath = _certificatePath;
+            Certificate = _certificate;
         }
 
         //public static void Start(string _baseUrl, string _clientId, string _clientSecret, string _certificatePath)
