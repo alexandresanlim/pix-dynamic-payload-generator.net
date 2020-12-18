@@ -24,6 +24,9 @@ Este carrega as características de uma fatura de cobrança.
 - Necessita de autenticação
 - Necessita de conexão com a internet
 
+#### ⚠ Importante!
+- Não é possível pagar cobranças geradas em ambiente de homologação/desenvolvimento.
+
 <details>
    <summary> Como Gerar?</summary>
 
