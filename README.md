@@ -24,6 +24,89 @@ Este carrega as características de uma fatura de cobrança.
 - Necessita de autenticação
 - Necessita de conexão com a internet
 
+## Gerando o QrCode dinâmico
+<details>
+   <summary> Como Gerar?</summary>
+
+### Instale [este pacote](https://www.nuget.org/packages/pix-dynamic-payload-generator.net) na sua aplicação.
+
+# Gerandor QrCode Dinâmico
+
+1 - Crie uma cobrança
+
+```csharp
+var cob = new CobRequest(_chave: "1b0e2743-0769-4f21-b0b7-9cfddb2a5a2b")
+{
+    Calendario = new Calendario
+    {
+        Expiracao = 3600
+    },
+    Devedor = new Devedor
+    {
+        Cpf = "12345678909",
+        Nome = "Francisco da Silva",
+    },
+    Valor = new Valor
+    {
+        Original = "1.00"
+    },
+    SolicitacaoPagador = "Serviço realizado.",
+    InfoAdicionais = new System.Collections.Generic.List<InfoAdicional>
+    {
+        new InfoAdicional
+        {
+            Nome = "Campo 1",
+            Valor = "Informação Adicional1 do PSP-Recebedor"
+        },
+        new InfoAdicional
+        {
+            Nome = "Campo 2",
+            Valor = "Informação Adicional2 do PSP-Recebedor"
+        }
+    }
+};
+
+var cobRequest = new CobRequestService();
+
+var cb = await cobRequest.Create(System.Guid.NewGuid().ToString("N"), cob);
+```
+
+2 - Consultar a cobrança gerada
+
+```csharp
+var cobRequest = new CobRequestService();
+
+var cob = await cobRequest.GetByTxId("496b0fd872ba49a0ad5b55572debdabf");
+
+var payload = cob.ToPayload(new Merchant("Alexandre Lima", "Presidente Prudente"));
+
+var stringToQrCode = payload.GenerateStringToQrCode();
+
+```
+
+2 - Gerar o Payload a partir da cobrança criada
+```csharp
+var payload = cobranca.ToPayload("O-TxtId-Aqui", new Merchant("Alexandre Sanlim", "Presidente Prudente"));
+```
+
+3 - Pegar uma string para setar em um QrCode a aprtir do Payload gerado
+
+```csharp
+var stringToQrCode = payload.GenerateStringToQrCode();
+```
+
+Retornará uma string como esta:
+
+```
+00020126580014br.gov.bcb.pix0136bee05743-4291-4f3c-9259-595df1307ba1520400005303986540510.005802BR5914Alexandre Lima6019Presidente Prudente62180514Um-Id-Qualquer6304D475
+```
+
+4 - Por fim, basta setar em um QRCode! ;)
+
+</details>
+
+
+
 
 ## QrCode estático
 Ideal para cobranças simples, sem a necessidade do acompanhamento de status ou outros tipos de registros.
