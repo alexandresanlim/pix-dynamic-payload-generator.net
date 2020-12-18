@@ -188,7 +188,7 @@ Retornará uma string como esta:
 
 # Testes
 
-- Este projeto possui [testes](https://github.com/alexandresanlim/pix-dynamic-payload-generator.net/blob/master/pix-dynamic-payload-generator.net-test/UnitTest1.cs) onde poderam ser usados para fazer os requests conforme sua necessidade, siga os passos para isso:
+Este projeto possui [testes](https://github.com/alexandresanlim/pix-dynamic-payload-generator.net/blob/master/pix-dynamic-payload-generator.net-test/UnitTest1.cs) onde poderam ser usados para fazer os requests conforme sua necessidade, siga os passos para isso:
 
 1 - Incluir o certificado disponibilizado pelo seu PSP na raiz do projeto, nas propriedades do mesmo marcar o "Copy to output directory" como "Copy always".
 
@@ -207,7 +207,7 @@ public UnitTest1()
 ```
 Use conforme sua necessidade.
 
-- Você poderá usar [este site](https://pix.nascent.com.br/tools/pix-qr-decoder/) para validar e visualizar os QrCoded gerados
+Você poderá usar [este site](https://pix.nascent.com.br/tools/pix-qr-decoder/) para validar e visualizar os QrCoded gerados
 
 # Informações Extra
 - Caso necessite somente das funções apresentadas em QrCode estático, apenas [este pacote](https://github.com/alexandresanlim/pix-payload-generator.net) será o suficiente.
