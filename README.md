@@ -13,7 +13,7 @@ Antes de começar, entenda um pouco sobre as diferenças dos dois tipos de gera�
 
 ## QrCode dinâmico
 Ideal para sistemas ERP e ou onde necessita do acompanhamento do status de cada cobrança, vinculo com pedidos, inclusão de multas e juros e outros.
-Este carrega as características de um boleto de cobrança.
+Este carrega as características de uma fatura de cobrança.
 
 #### ✅ Pontos fortes:
 - É possível recuperar informações do status de pagamento
