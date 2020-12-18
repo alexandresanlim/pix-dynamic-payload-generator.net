@@ -8,9 +8,11 @@
 
 Este pacote auxilia na geração de payloads para usar em QRCode estático ou dinâmico PIX (Sistema de pagamento instântaneo do Brasil)
 
-# ⚠ Informações importantes (limitações)
+# ⚠ Informações importantes e limitações
 
-### Para a geração de QrCode dinâmico:
+## QrCode dinâmico
+Ideal para sistemas ERP e ou onde necessita do acompanhamento do status de cada cobrança, vinculo com pedidos, inclusão de multas e juros e outros.
+Este carrega as características de um boleto de cobrança.
 
 #### ✅ Pontos fortes:
 - É possível recuperar informações do status de pagamento
@@ -22,8 +24,10 @@ Este pacote auxilia na geração de payloads para usar em QRCode estático ou di
 - Necessita de conexão com a internet
 
 
+## QrCode estático
+Ideal para cobranças simples, sem a necessidade do acompanhamento de status ou outros tipos de registros.
+Este carrega as característica da maquininha de cartão
 
-### Para a geração de QrCode estático:
 #### ✅ Pontos fortes:
 - Não necessita de conexão com a internet
 - Não necessita de autenticação
