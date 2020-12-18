@@ -10,7 +10,7 @@ Este pacote auxilia na geração de payloads para usar em QRCode estático ou di
 
 # ⚠ Informações importantes (limitações)
 
-### Para a geraão de QrCode dinâmico:
+### Para a geração de QrCode dinâmico:
 - Requer um PSP
 - Necessita de conexão com a internet
 
