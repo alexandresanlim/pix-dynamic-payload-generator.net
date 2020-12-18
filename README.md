@@ -11,7 +11,7 @@ Este pacote auxilia na geração de payloads para usar em QRCode estático ou di
 # ⚠ Informações importantes e limitações
 Antes de começar, entenda um pouco sobre as diferenças dos dois tipos de geração de QrCodes disponibilizadas pelo Bacen ("QrCode estático" e "QrCode dinâmico")
 
-## QrCode dinâmico
+## QrCode Dinâmico
 Ideal para sistemas ERP e ou onde necessita do acompanhamento do status de cada cobrança, vinculo com pedidos, inclusão de multas e juros e outros.
 Este carrega as características de uma fatura de cobrança.
 
@@ -104,7 +104,7 @@ Retornará uma string como esta:
 
 
 
-## QrCode estático
+## QrCode Estático
 Ideal para cobranças simples, sem a necessidade do acompanhamento de status ou outros tipos de registros.
 Este carrega as característica da maquininha de cartão
 
@@ -168,7 +168,7 @@ Retornará uma string como esta:
 
 </details>
 
-# Informações extra
+# Informações Extra
 
 - Caso necessite somente das funções apresentadas em QrCode estático, apenas [este pacote](https://github.com/alexandresanlim/pix-payload-generator.net) será o suficiente.
 - Você pode usar [este site](https://pix.nascent.com.br/tools/pix-qr-decoder/) para validar e visualizar o QrCode gerado
