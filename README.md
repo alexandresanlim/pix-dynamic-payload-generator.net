@@ -12,12 +12,12 @@ Este pacote auxilia na geração de payloads para usar em QRCode estático ou di
 Antes de começar, entenda um pouco sobre as diferenças dos dois tipos de geração de QrCodes disponibilizadas pelo Bacen ("QrCode estático" e "QrCode dinâmico")
 
 ## QrCode Dinâmico
-Ideal para sistemas ERP e ou onde necessita do acompanhamento do status de cada cobrança, vinculo com pedidos, inclusão de multas e juros e outros.
-Este carrega as características de uma fatura de cobrança.
+Ideal para sistemas ERP e ou onde necessita do acompanhamento do status de cada cobrança, vinculo com pedidos, inclusão de multas, juros e outros.
+Carrega as características de uma fatura de cobrança.
 
 #### ✅ Pontos fortes:
 - É possível recuperar informações do status de pagamento
-- É possível usar todos os serviços da [api oficial do pix](https://bacen.github.io/pix-api/#/Pix/get_pix) disponibilizadas pelo seu PSP
+- É possível usar todos os serviços da [api oficial do pix](https://bacen.github.io/pix-api/#/Pix/get_pix) disponibilizadas pelo Bacen e seu PSP
 
 #### ❌ Pontos fracos:
 - Requer um PSP
@@ -124,7 +124,7 @@ Retornará uma string como esta:
 
 ## QrCode Estático
 Ideal para cobranças simples, sem a necessidade do acompanhamento de status ou outros tipos de registros.
-Este carrega as característica da maquininha de cartão
+Carrega as característica da maquininha de cartão.
 
 #### ✅ Pontos fortes:
 - Não necessita de conexão com a internet
