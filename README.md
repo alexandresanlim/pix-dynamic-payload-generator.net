@@ -17,7 +17,7 @@ Carrega as características de uma fatura de cobrança.
 
 #### ✅ Pontos fortes:
 - É possível recuperar informações do status de pagamento
-- É possível usar todos os serviços da [api oficial do pix](https://bacen.github.io/pix-api/#/Pix/get_pix) disponibilizadas pelo Bacen e seu PSP
+- É possível usar todos os end points da [api oficial do pix](https://bacen.github.io/pix-api/#/Pix/get_pix) disponibilizadas pelo seu PSP
 
 #### ❌ Pontos fracos:
 - Requer um PSP
@@ -121,7 +121,6 @@ Retornará uma string como esta:
 </details>
 
 
-
 ## QrCode Estático
 Ideal para cobranças simples, sem a necessidade do acompanhamento de status ou outros tipos de registros.
 Carrega as característica da maquininha de cartão.
@@ -133,7 +132,7 @@ Carrega as característica da maquininha de cartão.
 
 #### ❌ Pontos fracos:
 - Não é possível recuperar informações do status de pagamento
-- Não é possível usar quaisquer serviços da [api oficial do pix](https://bacen.github.io/pix-api/#/Pix/get_pix)
+- Não é possível usar quaisquer endpoints da [api oficial do pix](https://bacen.github.io/pix-api/#/Pix/get_pix)
 
 #### ⚠ Importante!
 - Não é possivel pagar para si mesmo usando a mesma Chave x PSP, ex: gerar um QrCode para uma chave na Nubank e tentar pagar com a própria conta da Nubank.
