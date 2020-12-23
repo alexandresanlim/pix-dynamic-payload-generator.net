@@ -26,6 +26,7 @@ Carrega as características de uma fatura de cobrança.
 
 #### ⚠ Importante!
 - Não é possível pagar cobranças geradas em ambiente de homologação/desenvolvimento.
+- Não é possivel pagar para si mesmo usando a mesma Chave x PSP, ex: gerar um QrCode para uma chave na Nubank e tentar pagar com a própria conta da Nubank.
 
 <details>
    <summary> Como Gerar?</summary>
