@@ -30,7 +30,7 @@ namespace pix_dynamic_payload_generator.net.ApiResource
             var handler = new HttpClientHandler();
             handler.ClientCertificates.Add(StartConfig.Certificate);
 
-            var token = StartConfig.GetToken();
+            var token = Requests.RequestServices.TokenService.Create(); //StartConfig.GetToken();
 
             client = new HttpClient(handler);
             client.DefaultRequestHeaders.CacheControl = new CacheControlHeaderValue { NoCache = true };

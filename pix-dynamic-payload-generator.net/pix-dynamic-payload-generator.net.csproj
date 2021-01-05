@@ -9,6 +9,7 @@
     <PackageProjectUrl>https://github.com/alexandresanlim/pix-dynamic-payload-generator.net</PackageProjectUrl>
     <RepositoryUrl>https://github.com/alexandresanlim/pix-dynamic-payload-generator.net</RepositoryUrl>
     <PackageTags>pix,brasil,brazil,qr,code,pagamento</PackageTags>
+    <UserSecretsId>4c002251-3090-4c5b-8cd5-8cc1066297b0</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

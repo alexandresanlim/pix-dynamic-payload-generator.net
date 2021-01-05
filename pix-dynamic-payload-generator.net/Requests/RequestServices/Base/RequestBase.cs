@@ -93,7 +93,7 @@ namespace pix_dynamic_payload_generator.net.Requests.RequestServices.Base
             {
                 var b = GetUrlRequest();
 
-                var response = await SendRequestAsync(HttpMethod.Post, b, data, null, headers).ConfigureAwait(false);
+                var response = await SendRequestAsync(HttpMethod.Post, b, data, headers).ConfigureAwait(false);
 
                 return await ProcessResponse<T>(response).ConfigureAwait(false);
             }
@@ -119,7 +119,7 @@ namespace pix_dynamic_payload_generator.net.Requests.RequestServices.Base
             {
                 var urlWithParameter = GetUrlRequest() + "/" + parameterId;
 
-                var response = await SendRequestAsync(HttpMethod.Put, urlWithParameter, data, null, headers).ConfigureAwait(false);
+                var response = await SendRequestAsync(HttpMethod.Put, urlWithParameter, data, headers).ConfigureAwait(false);
 
                 return await ProcessResponse<T>(response).ConfigureAwait(false);
             }
@@ -141,7 +141,7 @@ namespace pix_dynamic_payload_generator.net.Requests.RequestServices.Base
             throw new ArgumentException(data);
         }
 
-        private async Task<HttpResponseMessage> SendRequestAsync(HttpMethod method, string url, object data = null, string customToken = null, Dictionary<string, string> headers = null)
+        private async Task<HttpResponseMessage> SendRequestAsync(HttpMethod method, string url, object data = null, Dictionary<string, string> headers = null)
         {
             using (var requestMessage = new HttpRequestMessage(method, url))
             {
