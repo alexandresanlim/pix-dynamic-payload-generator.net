@@ -19,9 +19,9 @@ namespace pix_dynamic_payload_generator.net_test
         public UnitTest1()
         {
             new StartConfig(
-                _baseUrl: "https://api-pix-h.gerencianet.com.br",
-                _clientId: "Client_Id_51d92e9836716a4ab9b3ec1d9d34f6644ac28d69",
-                _clientSecret: "Client_Secret_0ab77acbf2bde2cc40a1162f596846fa75ff710e",
+                _baseUrl: "https://api-pix-h.seupsp.com.br",
+                _clientId: "client-id-fornecido-pelo-psp",
+                _clientSecret: "client-secret-fornecido-pelo-psp",
                _certificate: new System.Security.Cryptography.X509Certificates.X509Certificate2(@".\certificado.p12")
                 );
         }
