@@ -26,7 +26,7 @@ namespace pix_dynamic_payload_generator.net.Requests.RequestServices
         /// <returns></returns>
         public async Task<Cob> Create(string txId, CobVRequest cob)
         {
-            return await PutAsync<Cob>(txId, cob);
+            return await PutAsync<Cob>("/" + txId, cob);
         }
 
         /// <summary>

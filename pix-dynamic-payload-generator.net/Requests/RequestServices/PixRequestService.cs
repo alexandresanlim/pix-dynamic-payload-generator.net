@@ -1,4 +1,5 @@
 ﻿using pix_dynamic_payload_generator.net.Models;
+using pix_dynamic_payload_generator.net.Requests.RequestModels;
 using pix_dynamic_payload_generator.net.Requests.RequestServices.Base;
 using pix_dynamic_payload_generator.net.Responses;
 using System;
@@ -39,6 +40,28 @@ namespace pix_dynamic_payload_generator.net.Requests.RequestServices
             endDate = endDate ?? startDate.AddHours(24);
 
             return await GetAsync<PixConsultaResponse>("?inicio=" + startDate.ToString("u") + "&fim=" + endDate.Value.ToString("u"));
+        }
+
+        /// <summary>
+        /// Endpoint para solicitar uma devolução através de um e2eid do Pix e do ID da devolução. O motivo que será atribuído à PACS.004 será "Devolução solicitada pelo usuário recebedor do pagamento original" cuja sigla é "MD06" de acordo com a aba RTReason da PACS.004 que consta no Catálogo de Mensagens do Pix.
+        /// </summary>
+        /// <param name="e2eid"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public async Task<PixDevolutionRequestResponse> RequestDevolution(string e2eid, string id, PixDevolutionRequest pixDevolutionRequest)
+        {
+            return await PutAsync<PixDevolutionRequestResponse>("/" + e2eid + "/devolucao/" + id, pixDevolutionRequest);
+        }
+
+        /// <summary>
+        /// Endpoint para solicitar uma devolução através de um e2eid do Pix e do ID da devolução. O motivo que será atribuído à PACS.004 será "Devolução solicitada pelo usuário recebedor do pagamento original" cuja sigla é "MD06" de acordo com a aba RTReason da PACS.004 que consta no Catálogo de Mensagens do Pix.
+        /// </summary>
+        /// <param name="e2eid"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public async Task<PixDevolutionRequestResponse> GetDevolution(string e2eid, string id)
+        {
+            return await GetAsync<PixDevolutionRequestResponse>("/" + e2eid + "/devolucao/" + id);
         }
     }
 }

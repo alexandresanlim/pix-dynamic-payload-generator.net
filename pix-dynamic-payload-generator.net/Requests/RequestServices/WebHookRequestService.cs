@@ -25,7 +25,7 @@ namespace pix_dynamic_payload_generator.net.Requests.RequestServices
         /// <returns></returns>
         public async Task<bool> Create(string key, WebHookRequest request)
         {
-            return await PutAsync<bool>(key, request);
+            return await PutAsync<bool>("/" + key, request);
         }
 
         /// <summary>

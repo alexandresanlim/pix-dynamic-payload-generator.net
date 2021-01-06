@@ -91,9 +91,7 @@ namespace pix_dynamic_payload_generator.net.Requests.RequestServices.Base
         {
             try
             {
-                var b = GetUrlRequest();
-
-                var response = await SendRequestAsync(HttpMethod.Post, b, data, headers).ConfigureAwait(false);
+                var response = await SendRequestAsync(HttpMethod.Post, GetUrlRequest(), data, headers).ConfigureAwait(false);
 
                 return await ProcessResponse<T>(response).ConfigureAwait(false);
             }
@@ -102,8 +100,6 @@ namespace pix_dynamic_payload_generator.net.Requests.RequestServices.Base
 
                 throw e;
             }
-
-
         }
 
         /// <summary>
@@ -113,11 +109,11 @@ namespace pix_dynamic_payload_generator.net.Requests.RequestServices.Base
         /// <param name="data"></param>
         /// <param name="headers"></param>
         /// <returns></returns>
-        public async Task<T> PutAsync<T>(string parameterId, object data, Dictionary<string, string> headers = null)
+        public async Task<T> PutAsync<T>(string path, object data, Dictionary<string, string> headers = null)
         {
             try
             {
-                var urlWithParameter = GetUrlRequest() + "/" + parameterId;
+                var urlWithParameter = GetUrlRequest() + path;
 
                 var response = await SendRequestAsync(HttpMethod.Put, urlWithParameter, data, headers).ConfigureAwait(false);
 
