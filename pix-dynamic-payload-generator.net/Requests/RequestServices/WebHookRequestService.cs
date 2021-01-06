@@ -35,7 +35,7 @@ namespace pix_dynamic_payload_generator.net.Requests.RequestServices
         /// <returns></returns>
         public async Task<Webhook> GetByKey(string key)
         {
-            return await GetAsync<Webhook>(key);
+            return await GetAsync<Webhook>("/" + key);
         }
     }
 }

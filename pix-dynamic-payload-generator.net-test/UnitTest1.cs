@@ -19,11 +19,12 @@ namespace pix_dynamic_payload_generator.net_test
         public UnitTest1()
         {
             new StartConfig(
-                _baseUrl: "https://api-pix-h.seupsp.com.br",
-                _clientId: "client-id-fornecido-pelo-psp",
-                _clientSecret: "client-secret-fornecido-pelo-psp",
-               _certificate: new System.Security.Cryptography.X509Certificates.X509Certificate2(@".\certificado.p12")
+                _baseUrl: "https://api-pix.gerencianet.com.br",
+                _clientId: "Client_Id_505c65a6e2cd5e048d583b80f8da2356a7230275",
+                _clientSecret: "Client_Secret_4bd8c21a1107a627c2db3a7dcf1c4180ce1a040a",
+                _certificate: new System.Security.Cryptography.X509Certificates.X509Certificate2(@".\certificado.p12")
                 );
+
         }
 
         #region OAuth
@@ -38,20 +39,8 @@ namespace pix_dynamic_payload_generator.net_test
         public void OAuthGenerateToken()
         {
             var token = TokenService.Create();
-
-            //var token = StartConfig.GetToken();
             Assert.IsFalse(string.IsNullOrEmpty(token?.AccessToken));
         }
-
-        //[TestMethod]
-        //public async Task GetToken2()
-        //{
-        //    var certificate = StartConfig.Certificate;
-
-        //    var request = new TokenService();
-        //    var token = await request.Create();
-        //    //Assert.IsFalse(string.IsNullOrEmpty(token?.AccessToken));
-        //}
 
         #endregion
 
@@ -124,9 +113,18 @@ namespace pix_dynamic_payload_generator.net_test
         public async Task CobGetByTxId()
         {
             var cobRequest = new CobRequestService();
-            var cb = await cobRequest.GetByTxId("2883c7672f794369a293bfb3d2ec6c69");
+            var cb = await cobRequest.GetByTxId("39088ca5f6a94069b541d1b7347a918a");
 
             Assert.IsFalse(string.IsNullOrEmpty(cb?.Txid));
+        }
+
+        [TestMethod]
+        public async Task GetByPeriod()
+        {
+            var cobRequest = new CobRequestService();
+            var cb = await cobRequest.GetByPeriod(DateTime.Today);
+
+            Assert.IsTrue(cb.Parametros.Paginacao != null);
         }
 
         #endregion

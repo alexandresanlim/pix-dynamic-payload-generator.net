@@ -76,7 +76,7 @@ namespace pix_dynamic_payload_generator.net.Requests.RequestServices.Base
         /// <returns></returns>
         public async Task<T> GetAsync<T>(string path)
         {
-            var response = await SendRequestAsync(HttpMethod.Get, GetUrlRequest() + "/" + path).ConfigureAwait(false);
+            var response = await SendRequestAsync(HttpMethod.Get, GetUrlRequest() + path).ConfigureAwait(false);
             return await ProcessResponse<T>(response).ConfigureAwait(false);
         }
 

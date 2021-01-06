@@ -48,7 +48,20 @@ namespace pix_dynamic_payload_generator.net.Requests.RequestServices
         /// <returns></returns>
         public async Task<Cob> GetByTxId(string txId)
         {
-            return await GetAsync<Cob>(txId);
+            return await GetAsync<Cob>("/" + txId);
+        }
+
+        /// <summary>
+        /// Consultar lista de cobranças
+        /// </summary>
+        /// <param name="startDate">A partir de</param>
+        /// <param name="endDate">Até (se não informado, por padrão será adicionado 24 horas a partir do startdate)</param>
+        /// <returns></returns>
+        public async Task<CobConsultaResponse> GetByPeriod(DateTime startDate, DateTime? endDate = null)
+        {
+            endDate = endDate ?? startDate.AddHours(24);
+
+            return await GetAsync<CobConsultaResponse>("?inicio=" + startDate.ToString("u") + "&fim=" + endDate.Value.ToString("u"));
         }
     }
 }

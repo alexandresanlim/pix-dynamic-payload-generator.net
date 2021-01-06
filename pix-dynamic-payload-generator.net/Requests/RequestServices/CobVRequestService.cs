@@ -36,7 +36,7 @@ namespace pix_dynamic_payload_generator.net.Requests.RequestServices
         /// <returns></returns>
         public async Task<Cob> GetByTxId(string txId)
         {
-            return await GetAsync<Cob>(txId);
+            return await GetAsync<Cob>("/" + txId);
         }
     }
 }

@@ -24,7 +24,7 @@ namespace pix_dynamic_payload_generator.net.Requests.RequestServices
         /// <returns></returns>
         public async Task<Pix> GetByE2eid(string e2eid)
         {
-            return await GetAsync<Pix>(e2eid);
+            return await GetAsync<Pix>("/" + e2eid);
         }
     }
 }
