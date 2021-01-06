@@ -27,22 +27,7 @@ namespace pix_dynamic_payload_generator.net_test
 
         }
 
-        #region OAuth
-
-        [TestMethod]
-        public void OAuthGetCertificate()
-        {
-            var certificate = StartConfig.Certificate;
-        }
-
-        [TestMethod]
-        public void OAuthGenerateToken()
-        {
-            var token = TokenService.Create();
-            Assert.IsFalse(string.IsNullOrEmpty(token?.AccessToken));
-        }
-
-        #endregion
+        
 
         #region WebHook
 
@@ -119,7 +104,7 @@ namespace pix_dynamic_payload_generator.net_test
         }
 
         [TestMethod]
-        public async Task GetByPeriod()
+        public async Task CobGetByPeriod()
         {
             var cobRequest = new CobRequestService();
             var cb = await cobRequest.GetByPeriod(DateTime.Today);
@@ -192,10 +177,17 @@ namespace pix_dynamic_payload_generator.net_test
         #region Pix
 
         [TestMethod]
-        public async Task CobGetByE2eid()
+        public async Task PixGetByE2eid()
         {
             var request = new PixRequestService();
             var cb = await request.GetByE2eid("e2eid");
+        }
+
+        [TestMethod]
+        public async Task PixGetByPeriod()
+        {
+            var request = new PixRequestService();
+            var cb = await request.GetByPeriod(DateTime.Today);
         }
 
         #endregion

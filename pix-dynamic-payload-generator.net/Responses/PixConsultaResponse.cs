@@ -7,13 +7,12 @@ using System.Text;
 
 namespace pix_dynamic_payload_generator.net.Responses
 {
-    public class CobConsultaResponse
+    public class PixConsultaResponse
     {
-
         [JsonProperty("parametros")]
         public Parametros Parametros { get; set; }
 
-        [JsonProperty("cobs")]
-        public List<Cob> Cobs { get; set; }
+        [JsonProperty("pix")]
+        public List<Pix> Pix { get; set; }
     }
 }
