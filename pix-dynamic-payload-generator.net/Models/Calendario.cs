@@ -10,6 +10,9 @@ namespace pix_dynamic_payload_generator.net.Models
     {
         [JsonProperty("criacao")]
         public DateTime Criacao { get; set; }
+
+        [JsonIgnore]
+        public string CriacaoDisplay => Criacao.ToString("dd MMM yy ddd HH:mm");
     }
 
     public class CalendarioBase

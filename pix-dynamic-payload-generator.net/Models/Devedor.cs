@@ -15,5 +15,14 @@ namespace pix_dynamic_payload_generator.net.Models
 
         [JsonProperty("nome")]
         public string Nome { get; set; }
+
+        [JsonIgnore]
+        public bool IsCNPJ => !string.IsNullOrEmpty(Cnpj);
+
+        [JsonIgnore]
+        public bool IsCPF => !string.IsNullOrEmpty(Cpf);
+
+        [JsonIgnore]
+        public string DocumentInfo => IsCNPJ ? Cnpj : Cpf;
     }
 }

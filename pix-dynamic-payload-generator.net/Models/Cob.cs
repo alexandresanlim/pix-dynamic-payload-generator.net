@@ -26,6 +26,7 @@ namespace pix_dynamic_payload_generator.net.Models
         [JsonProperty("pix")]
         public List<Pix> Pix { get; set; }
 
+        [JsonIgnore]
         public CobStatus StatusOnEnum
         {
             get
@@ -35,6 +36,7 @@ namespace pix_dynamic_payload_generator.net.Models
             }
         }
 
+        [JsonIgnore]
         public PaymenStatus StatusPagamento
         {
             get
