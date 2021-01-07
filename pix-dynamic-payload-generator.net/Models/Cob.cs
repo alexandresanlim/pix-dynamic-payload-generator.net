@@ -77,7 +77,7 @@ namespace pix_dynamic_payload_generator.net.Models
                 if (StatusOnEnum == CobStatus.ATIVA)
                     return PaymenStatus.NAO_PAGO;
 
-                return Pix.Sum(x => x.ValorToDecimal) == Valor.ToDecimal ? PaymenStatus.PAGO_TOTALMENTE : PaymenStatus.PAGO_PARCIALMENTE;
+                return PixValorFinal == Valor.ToDecimal ? PaymenStatus.PAGO_TOTALMENTE : PaymenStatus.PAGO_PARCIALMENTE;
             }
         }
     }
