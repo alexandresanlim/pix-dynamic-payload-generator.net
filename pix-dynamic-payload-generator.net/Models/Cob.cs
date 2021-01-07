@@ -27,6 +27,30 @@ namespace pix_dynamic_payload_generator.net.Models
         public List<Pix> Pix { get; set; }
 
         [JsonIgnore]
+        public decimal PixValorTotal => Pix.Sum(x => x.ValorToDecimal);
+
+        [JsonIgnore]
+        public string PixValorTotalDisplay => PixValorTotal.ToString("C");
+
+        [JsonIgnore]
+        public decimal PixValorTotalDevolucao => Pix.Sum(x => x.DevolucoesTotal);
+
+        [JsonIgnore]
+        public string PixValorTotalDevolucaoDisplay => PixValorTotalDevolucao.ToString("C");
+
+        [JsonIgnore]
+        public decimal PixValorFinal => PixValorTotal - PixValorTotalDevolucao;
+
+        [JsonIgnore]
+        public string PixValorFinalDisplay => PixValorFinal.ToString("C");
+
+        [JsonIgnore]
+        public string StatusDisplay => StatusOnEnum.ToDisplay();
+
+        [JsonIgnore]
+        public string StatusPagamentoDisplay => StatusPagamento.ToDisplay();
+
+        [JsonIgnore]
         public CobStatus StatusOnEnum
         {
             get
@@ -74,6 +98,40 @@ namespace pix_dynamic_payload_generator.net.Models
         public static Payload ToPayload(this Cob cob, Merchant merchant, bool uniquePayment = false)
         {
             return new DynamicPayload(cob.Txid, merchant, cob.Location, uniquePayment, cob.Valor.ToDecimal);
+        }
+
+        public static string ToDisplay(this PaymenStatus paymenStatus)
+        {
+            switch (paymenStatus)
+            {
+                case PaymenStatus.NAO_PAGO:
+                    return "Não Pago";
+                case PaymenStatus.PAGO_PARCIALMENTE:
+                    return "Pago Parcialmente";
+                case PaymenStatus.PAGO_TOTALMENTE:
+                    return "Pago Totalmente";
+                case PaymenStatus.NOT_FOUND:
+                default:
+                    return "Não encontrado";
+            }
+        }
+
+        public static string ToDisplay(this CobStatus cobStatus)
+        {
+            switch (cobStatus)
+            {
+                case CobStatus.ATIVA:
+                    return "Ativa";
+                case CobStatus.CONCLUIDA:
+                    return "Concluída";
+                case CobStatus.REMOVIDA_PELO_USUARIO_RECEBEDOR:
+                    return "Removida pelo usuário recebedor";
+                case CobStatus.REMOVIDA_PELO_PSP:
+                    return "Removida pelo PSP";
+                case CobStatus.NOT_FOUND:
+                default:
+                    return "Não Encontrado";
+            }
         }
     }
 }
