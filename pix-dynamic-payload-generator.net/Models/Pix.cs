@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using pix_dynamic_payload_generator.net.Extentions;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -19,13 +20,22 @@ namespace pix_dynamic_payload_generator.net.Models
         [JsonProperty("horario")]
         public DateTime Horario { get; set; }
 
+        [JsonProperty("infoPagador")]
+        public string InfoPagador { get; set; }
+
+        [JsonProperty("devolucoes")]
+        public List<Devolucao> Devolucoes { get; set; }
+
         [JsonIgnore]
-        public decimal ValorToDecimal => Convert.ToDecimal(Valor, new System.Globalization.CultureInfo("en-US"));
+        public decimal ValorToDecimal => Valor.ToDecimalUSCulture();
 
         [JsonIgnore]
         public string ValorDisplay => ValorToDecimal.ToString("C");
 
         [JsonIgnore]
-        public string HorarioDisplay => Horario.ToString("dd MMM yy ddd HH:mm");
+        public string HorarioDisplay => Horario.ToDisplay();
+
+        [JsonIgnore]
+        public bool HasDevolucao => Devolucoes != null && Devolucoes.Count > 0;
     }
 }

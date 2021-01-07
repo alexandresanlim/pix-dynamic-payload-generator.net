@@ -1,12 +1,13 @@
 ﻿using Newtonsoft.Json;
 using pix_dynamic_payload_generator.net.Extentions;
+using pix_dynamic_payload_generator.net.Responses;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace pix_dynamic_payload_generator.net.Responses
+namespace pix_dynamic_payload_generator.net.Models
 {
-    public class PixDevolutionRequestResponse
+    public class Devolucao
     {
         [JsonProperty("id")]
         public string Id { get; set; }
@@ -22,14 +23,11 @@ namespace pix_dynamic_payload_generator.net.Responses
 
         [JsonProperty("status")]
         public string Status { get; set; }
-    }
-
-    public class Horario
-    {
-        [JsonProperty("solicitacao")]
-        public DateTime Solicitacao { get; set; }
 
         [JsonIgnore]
-        public string Display => Solicitacao.ToDisplay();
+        public decimal ValorToDecimal => Valor.ToDecimalUSCulture();
+
+        [JsonIgnore]
+        public string ValorDisplay => ValorToDecimal.ToString("C");
     }
 }
