@@ -1,11 +1,18 @@
 ﻿using Newtonsoft.Json;
+using pix_dynamic_payload_generator.net.Requests.RequestModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace pix_dynamic_payload_generator.net.Models
 {
-    public class Calendario
+    public class Calendario : CalendarioBase
+    {
+        [JsonProperty("criacao")]
+        public DateTime Criacao { get; set; }
+    }
+
+    public class CalendarioBase
     {
         /// <summary>
         /// title: Tempo de vida da cobrança, especificado em segundos.
@@ -15,8 +22,5 @@ namespace pix_dynamic_payload_generator.net.Models
         /// </summary>
         [JsonProperty("expiracao")]
         public int Expiracao { get; set; }
-
-        //[JsonProperty("criacao")]
-        //public DateTime Criacao { get; set; }
     }
 }

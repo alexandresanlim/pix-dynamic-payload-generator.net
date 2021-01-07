@@ -11,7 +11,7 @@ namespace pix_dynamic_payload_generator.net.Requests.RequestModels
         }
 
         [JsonProperty("calendario")]
-        public Calendario Calendario { get; set; }
+        public CalendarioBase Calendario { get; set; }
 
         [JsonProperty("devedor")]
         public Devedor Devedor { get; set; }

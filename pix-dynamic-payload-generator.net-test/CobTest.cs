@@ -14,8 +14,6 @@ namespace pix_dynamic_payload_generator.net_test
     [TestClass]
     public class CobTest : UnitTestBase
     {
-        #region Cob
-
         [TestMethod]
         public async Task CobCreate()
         {
@@ -74,7 +72,5 @@ namespace pix_dynamic_payload_generator.net_test
 
             Assert.IsTrue(cb.Parametros.Paginacao != null);
         }
-
-        #endregion
     }
 }
