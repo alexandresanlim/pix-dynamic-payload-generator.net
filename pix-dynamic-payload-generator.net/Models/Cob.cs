@@ -27,13 +27,13 @@ namespace pix_dynamic_payload_generator.net.Models
         public List<Pix> Pix { get; set; }
 
         [JsonIgnore]
-        public decimal PixValorTotal => Pix.Sum(x => x.ValorToDecimal);
+        public decimal PixValorTotal => HasPix ? Pix.Sum(x => x.ValorToDecimal) : 0;
 
         [JsonIgnore]
         public string PixValorTotalDisplay => PixValorTotal.ToString("C");
 
         [JsonIgnore]
-        public decimal PixValorTotalDevolucao => Pix.Sum(x => x.DevolucoesTotal);
+        public decimal PixValorTotalDevolucao => HasPix ? Pix.Sum(x => x.DevolucoesTotal) : 0;
 
         [JsonIgnore]
         public string PixValorTotalDevolucaoDisplay => PixValorTotalDevolucao.ToString("C");
@@ -49,6 +49,12 @@ namespace pix_dynamic_payload_generator.net.Models
 
         [JsonIgnore]
         public string StatusPagamentoDisplay => StatusPagamento.ToDisplay();
+
+        [JsonIgnore]
+        public bool HasPix => Pix != null && Pix.Count > 0;
+
+        [JsonIgnore]
+        public int PixCount => HasPix ? Pix.Count : 0;
 
         [JsonIgnore]
         public CobStatus StatusOnEnum

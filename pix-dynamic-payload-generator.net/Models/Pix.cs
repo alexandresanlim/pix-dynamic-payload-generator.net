@@ -28,7 +28,7 @@ namespace pix_dynamic_payload_generator.net.Models
         public List<Devolucao> Devolucoes { get; set; }
 
         [JsonIgnore]
-        public decimal DevolucoesTotal => Devolucoes.Sum(x => x.ValorToDecimal);
+        public decimal DevolucoesTotal => HasDevolucao ? Devolucoes.Sum(x => x.ValorToDecimal) : 0;
 
         [JsonIgnore]
         public string DevolucoesTotalDisplay => DevolucoesTotal.ToString("C");
