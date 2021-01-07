@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <RootNamespace>pix_dynamic_payload_generator.net</RootNamespace>
-    <Version>1.0.14</Version>
+    <Version>1.0.15</Version>
     <Authors>Alexandre Sanlim</Authors>
     <Description>Auxilia na geração de QRCodes dinâmicos para pagamentos com PIX (Sistema de pagamento instantâneo do Banco Central do Brasil).</Description>
     <PackageProjectUrl>https://github.com/alexandresanlim/pix-dynamic-payload-generator.net</PackageProjectUrl>
