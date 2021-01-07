@@ -21,5 +21,8 @@ namespace pix_dynamic_payload_generator.net.Models
 
         [JsonIgnore]
         public decimal ValorToDecimal => Convert.ToDecimal(Valor, new System.Globalization.CultureInfo("en-US"));
+
+        [JsonIgnore]
+        public string ValorDisplay => ValorToDecimal.ToString("C");
     }
 }
