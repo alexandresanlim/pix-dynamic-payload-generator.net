@@ -24,5 +24,8 @@ namespace pix_dynamic_payload_generator.net.Models
 
         [JsonIgnore]
         public string ValorDisplay => ValorToDecimal.ToString("C");
+
+        [JsonIgnore]
+        public string HorarioDisplay => Horario.ToString("dd MMM yy ddd HH:mm");
     }
 }
