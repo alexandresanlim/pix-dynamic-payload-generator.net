@@ -2,6 +2,7 @@
 using pix_dynamic_payload_generator.net.Extentions;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace pix_dynamic_payload_generator.net.Models
@@ -27,7 +28,19 @@ namespace pix_dynamic_payload_generator.net.Models
         public List<Devolucao> Devolucoes { get; set; }
 
         [JsonIgnore]
+        public decimal DevolucoesTotal => Devolucoes.Sum(x => x.ValorToDecimal);
+
+        [JsonIgnore]
+        public string DevolucoesTotalDisplay => DevolucoesTotal.ToString("C");
+
+        [JsonIgnore]
         public decimal ValorToDecimal => Valor.ToDecimalUSCulture();
+
+        [JsonIgnore]
+        public decimal ValorFinal => ValorToDecimal - DevolucoesTotal;
+
+        [JsonIgnore]
+        public string ValorFinalDisplay => ValorFinal.ToString("C");
 
         [JsonIgnore]
         public string ValorDisplay => ValorToDecimal.ToString("C");
