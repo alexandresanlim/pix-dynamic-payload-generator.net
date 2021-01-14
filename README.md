@@ -93,10 +93,6 @@ var cobRequest = new CobRequestService();
 
 var cob = await cobRequest.GetByTxId("496b0fd872ba49a0ad5b55572debdabf");
 
-var payload = cob.ToPayload(new Merchant("Alexandre Lima", "Presidente Prudente"));
-
-var stringToQrCode = payload.GenerateStringToQrCode();
-
 ```
 
 2 - Gerar o Payload a partir da cobrança gerada
