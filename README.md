@@ -8,9 +8,9 @@
 Este pacote é a implementação em .net para auxiliar na geração de payloads e QRCodes para pagamento PIX, o sistema de pagamento instântaneo do Brasil.
 
 ### Para começar, veja a nossa [Wiki](https://github.com/alexandresanlim/pix-dynamic-payload-generator.net/wiki):
-- [QR Code estático x QR Code dinâmico](https://github.com/alexandresanlim/pix-dynamic-payload-generator.net/wiki/1---QRCode-din%C3%A2mico-x-QRCode-est%C3%A1tico)
-- [PSPs compatíveis para QR Code estático](https://github.com/alexandresanlim/pix-dynamic-payload-generator.net/wiki/0-PSPs-compat%C3%ADveis)
-- [Como iniciar?](https://github.com/alexandresanlim/pix-dynamic-payload-generator.net/wiki/2-Como-iniciar%3F)
-- [Gerar QR Code dinâmico](https://github.com/alexandresanlim/pix-dynamic-payload-generator.net/wiki/2-Gerar-QRCode-din%C3%A2mico)
-- [Gerar QR Code estático](https://github.com/alexandresanlim/pix-dynamic-payload-generator.net/wiki/3-Gerar-QRCode-est%C3%A1tico)
-- [Testes](https://github.com/alexandresanlim/pix-dynamic-payload-generator.net/wiki/4-Testes)
+- [Diferenças, QR Code estático x QR Code dinâmico](https://github.com/alexandresanlim/pix-dynamic-payload-generator.net/wiki/0-Diferen%C3%A7as,-QR-Code-est%C3%A1tico-x-QR-Code-din%C3%A2mico)
+- [QR Code estático, como gerar?](https://github.com/alexandresanlim/pix-dynamic-payload-generator.net/wiki/1-QR-Code-est%C3%A1tico,-como-gerar%3F)
+- [QR Code dinâmico, PSPs compatíveis.](https://github.com/alexandresanlim/pix-dynamic-payload-generator.net/wiki/2-QR-Code-din%C3%A2mico,-PSPs-compat%C3%ADveis.)
+- [QR Code dinâmico, como iniciar?](https://github.com/alexandresanlim/pix-dynamic-payload-generator.net/wiki/3-QR-Code-din%C3%A2mico,-como-iniciar%3F)
+- [QR Code dinâmico, como gerar?](https://github.com/alexandresanlim/pix-dynamic-payload-generator.net/wiki/4-QR-Code-din%C3%A2mico,-como-gerar%3F)
+- [QR Code dinâmico, testes](https://github.com/alexandresanlim/pix-dynamic-payload-generator.net/wiki/5-QR-Code-din%C3%A2mico,-testess)
