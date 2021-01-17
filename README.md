@@ -9,7 +9,8 @@ Este pacote é a implementação em .net para auxiliar na geração de payloads 
 
 ### Para começar, veja a nossa [Wiki](https://github.com/alexandresanlim/pix-dynamic-payload-generator.net/wiki):
 - [QRCode estático x QRCode dinâmico](https://github.com/alexandresanlim/pix-dynamic-payload-generator.net/wiki/1---QRCode-din%C3%A2mico-x-QRCode-est%C3%A1tico)
-- [PSPs Compatíveis](https://github.com/alexandresanlim/pix-dynamic-payload-generator.net/wiki/0-PSPs-compat%C3%ADveis)
+- [PSPs compatíveis](https://github.com/alexandresanlim/pix-dynamic-payload-generator.net/wiki/0-PSPs-compat%C3%ADveis)
+- [Como iniciar?](https://github.com/alexandresanlim/pix-dynamic-payload-generator.net/wiki/2-Como-iniciar%3F)
 - [Gerar QRCode dinâmico](https://github.com/alexandresanlim/pix-dynamic-payload-generator.net/wiki/2-Gerar-QRCode-din%C3%A2mico)
 - [Gerar QRCode estático](https://github.com/alexandresanlim/pix-dynamic-payload-generator.net/wiki/3-Gerar-QRCode-est%C3%A1tico)
 - [Testes](https://github.com/alexandresanlim/pix-dynamic-payload-generator.net/wiki/4-Testes)
