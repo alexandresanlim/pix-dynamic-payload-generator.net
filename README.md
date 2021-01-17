@@ -5,7 +5,7 @@
 [![Nuget](https://img.shields.io/nuget/dt/pix-dynamic-payload-generator.net)](https://www.nuget.org/packages/pix-dynamic-payload-generator.net)
 [![Nuget](https://img.shields.io/nuget/v/pix-dynamic-payload-generator.net)](https://www.nuget.org/packages/pix-dynamic-payload-generator.net)
 
-Este pacote é a implementação em .net para auxiliar na geração de payloads e QRCodes para pagamento PIX, o sistema de pagamento instântaneo do Brasil.
+Este pacote é a implementação em .net para auxiliar na geração de payloads e QRCodes para pagamento PIX, o sistema de pagamento instantâneo do Brasil.
 
 ### Para começar, veja a nossa [Wiki](https://github.com/alexandresanlim/pix-dynamic-payload-generator.net/wiki):
 - [Diferenças, QR Code estático x QR Code dinâmico](https://github.com/alexandresanlim/pix-dynamic-payload-generator.net/wiki/0-Diferen%C3%A7as,-QR-Code-est%C3%A1tico-x-QR-Code-din%C3%A2mico)
