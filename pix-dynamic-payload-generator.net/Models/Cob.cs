@@ -103,7 +103,7 @@ namespace pix_dynamic_payload_generator.net.Models
     {
         public static Payload ToPayload(this Cob cob, Merchant merchant, bool uniquePayment = false)
         {
-            return new DynamicPayload(cob.Txid, merchant, cob.Location, uniquePayment, cob.Valor.ToDecimal);
+            return new DynamicPayload(cob.Txid, merchant, cob.Location, uniquePayment, cob.Valor.Original);
         }
 
         public static string ToDisplay(this PaymenStatus paymenStatus)
