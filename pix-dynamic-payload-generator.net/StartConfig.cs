@@ -1,12 +1,5 @@
-﻿using Newtonsoft.Json;
-using pix_dynamic_payload_generator.net.Models;
-using System;
-using System.Collections.Generic;
-using System.Net;
-using System.Net.Http;
-using System.Net.Http.Headers;
+﻿using pix_dynamic_payload_generator.net.Models.Interfaces;
 using System.Security.Cryptography.X509Certificates;
-using System.Text;
 
 namespace pix_dynamic_payload_generator.net
 {
@@ -16,11 +9,6 @@ namespace pix_dynamic_payload_generator.net
         /// Url da api pix do PSP, exemplo: https://api-pix-h.gerencianet.com.br
         /// </summary>
         public static string BaseUrl { get; private set; }
-
-        /// <summary>
-        /// Caminho absoluto do certificado marcado como copy-always
-        /// </summary>
-        //public static string CertificatePath { get; private set; }
 
         /// <summary>
         /// ClientId do oauth 2 do PSP
@@ -40,6 +28,14 @@ namespace pix_dynamic_payload_generator.net
             ClientId = _clientId;
             ClientSecret = _clientSecret;
             Certificate = _certificate;
+        }
+
+        public StartConfig(IStartConfig _startConfig)
+        {
+            BaseUrl = _startConfig.BaseURL;
+            ClientId = _startConfig.ClientId;
+            ClientSecret = _startConfig.ClientSecret;
+            Certificate = _startConfig.Certificate;
         }
     }
 }

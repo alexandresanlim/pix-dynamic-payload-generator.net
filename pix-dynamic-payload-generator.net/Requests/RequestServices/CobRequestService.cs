@@ -1,11 +1,8 @@
-﻿using pix_dynamic_payload_generator.net.ApiResource;
-using pix_dynamic_payload_generator.net.Models;
+﻿using pix_dynamic_payload_generator.net.Models;
 using pix_dynamic_payload_generator.net.Requests.RequestModels;
 using pix_dynamic_payload_generator.net.Requests.RequestServices.Base;
 using pix_dynamic_payload_generator.net.Responses;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace pix_dynamic_payload_generator.net.Requests.RequestServices
