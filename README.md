@@ -15,4 +15,4 @@ Este pacote é a implementação em .net para auxiliar na geração de payloads 
 - [QR Code dinâmico, como gerar?](https://github.com/alexandresanlim/pix-dynamic-payload-generator.net/wiki/4-QR-Code-din%C3%A2mico,-como-gerar%3F)
 - [QR Code dinâmico, testes](https://github.com/alexandresanlim/pix-dynamic-payload-generator.net/wiki/5-QR-Code-din%C3%A2mico,-testes)
 
-⚠ Caso necessite somente das funcionalidades de "QR Code estático", somente o pacote [pix-payload-generator.net](https://github.com/alexandresanlim/pix-payload-generator.net) será  necessário.
+⚠ Somente o pacote [pix-payload-generator.net](https://github.com/alexandresanlim/pix-payload-generator.net) será necessário, caso necessite somente das funcionalidades de "QR Code estático".
