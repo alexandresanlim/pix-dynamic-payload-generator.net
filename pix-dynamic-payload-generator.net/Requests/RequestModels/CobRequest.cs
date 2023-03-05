@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using pix_dynamic_payload_generator.net.Models;
+using pix_dynamic_payload_generator.net.Models.Attributes;
 using pix_dynamic_payload_generator.net.Requests.RequestModels.Base;
 
 namespace pix_dynamic_payload_generator.net.Requests.RequestModels
@@ -13,7 +14,7 @@ namespace pix_dynamic_payload_generator.net.Requests.RequestModels
         [JsonProperty("calendario")]
         public CalendarioBase Calendario { get; set; }
 
-        [JsonProperty("devedor")]
+        [JsonProperty("devedor"), DevedorRequest]
         public Devedor Devedor { get; set; }
 
         ///// <summary>
