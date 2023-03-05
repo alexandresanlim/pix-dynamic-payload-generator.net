@@ -21,12 +21,24 @@ namespace pix_dynamic_payload_generator.net_test.Base
 
     public class StartConfigValues : IStartConfig
     {
-        public string BaseURL => "https://api-pix-h.gerencianet.com.br";
+        /// <summary>
+        /// Emxemplo: Gerencianet PRD: https://api-pix.gerencianet.com.br HML:https://api-pix-h.gerencianet.com.br  
+        /// </summary>
+        public string BaseURL => "https://api-pix-h.psp.com.br";
 
-        public string ClientId => "Client_Id_51d92e9836716a4ab9b3ec1d9d34f6644ac28d69";
+        /// <summary>
+        /// ClientId fornecido pelo PSP
+        /// </summary>
+        public string ClientId => "{CLIENT ID AQUI}";
 
-        public string ClientSecret => "Client_Secret_0ab77acbf2bde2cc40a1162f596846fa75ff710e";
+        /// <summary>
+        /// ClientSecret fornecido pelo PSP
+        /// </summary>
+        public string ClientSecret => "{CLIENT SECRET AQUI}";
 
+        /// <summary>
+        /// Caminho para o certificado fornecido pelo PSP
+        /// </summary>
         public X509Certificate2 Certificate => new X509Certificate2(@".\certificado.p12");
     }
 }
