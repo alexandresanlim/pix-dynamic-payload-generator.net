@@ -79,7 +79,7 @@ namespace pix_dynamic_payload_generator.net.Requests.RequestModels
         public string ValorPerc { get; set; }
     }
 
-    public class DevedorCobV
+    public class DevedorCobV: Devedor
     {
         [JsonProperty("logradouro")]
         public string Logradouro { get; set; }
@@ -92,12 +92,6 @@ namespace pix_dynamic_payload_generator.net.Requests.RequestModels
 
         [JsonProperty("cep")]
         public string Cep { get; set; }
-
-        [JsonProperty("cpf")]
-        public string Cpf { get; set; }
-
-        [JsonProperty("nome")]
-        public string Nome { get; set; }
     }
 
     public class CalendarioCobV

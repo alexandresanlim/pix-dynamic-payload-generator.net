@@ -14,7 +14,7 @@ namespace pix_dynamic_payload_generator.net.Requests.RequestServices
     {
         public CobRequestService()
         {
-            SetRoute("cob");
+            SetRoute("pix", "cob");
         }
 
         /// <summary>

@@ -16,7 +16,7 @@ namespace pix_dynamic_payload_generator.net.Requests.RequestServices
     {
         public PixRequestService()
         {
-            SetRoute("pix");
+            SetRoute("pix", "pix");
         }
 
         /// <summary>

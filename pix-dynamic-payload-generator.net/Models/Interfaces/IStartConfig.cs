@@ -16,5 +16,13 @@ namespace pix_dynamic_payload_generator.net.Models.Interfaces
         string ClientSecret { get; }
 
         X509Certificate2 Certificate { get; }
+
+        string AuthEndpoint { get; }
+
+        bool UseUrlFormEncodedForAuth { get; }
+
+        string AuthScopes { get; }
+
+        bool UseEndpointArea { get; }
     }
 }

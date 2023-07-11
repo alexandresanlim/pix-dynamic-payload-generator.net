@@ -2,6 +2,7 @@
 using pix_dynamic_payload_generator.net.ApiResource;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +20,9 @@ namespace pix_dynamic_payload_generator.net.Requests.RequestServices.Base
         /// </summary>
         private string Route { get; set; }
 
-        public void SetRoute(string value)
+        public void SetRoute(string area, string value)
         {
-            Route = StartConfig.BaseUrl + "/v2/" + value;
+            Route = $"{StartConfig.BaseUrl}{(StartConfig.UseEndpointArea ? $"/{area}" : "")}/v2/{value}";
         }
 
         public string GetUrlRequest()

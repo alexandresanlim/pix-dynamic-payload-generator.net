@@ -15,7 +15,7 @@ namespace pix_dynamic_payload_generator.net.Requests.RequestServices
     {
         public WebHookRequestService()
         {
-            SetRoute("webhook");
+            SetRoute("pix", "webhook");
         }
 
         /// <summary>

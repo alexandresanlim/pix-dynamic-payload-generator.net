@@ -17,6 +17,9 @@ namespace pix_dynamic_payload_generator.net.Models
         [JsonProperty("txid")]
         public string Txid { get; set; }
 
+        [JsonProperty("pixCopiaECola")]
+        public string PixCopiaECola { get; set; }
+
         [JsonProperty("revisao")]
         public int Revisao { get; set; }
 

@@ -31,11 +31,28 @@ namespace pix_dynamic_payload_generator.net.Requests.RequestServices
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            using (var requestMessage = new HttpRequestMessage(HttpMethod.Post, StartConfig.BaseUrl + "/oauth/token"))
+            using (var requestMessage = new HttpRequestMessage(HttpMethod.Post, StartConfig.BaseUrl + StartConfig.AuthEndpoint))
             {
-                var content = "{\r\n    \"grant_type\": \"client_credentials\"\r\n}";
-
-                requestMessage.Content = new StringContent(content, Encoding.UTF8, "application/json");
+                if (StartConfig.UseUrlFormEncodedForAuth)
+                {
+                    var content = new List<KeyValuePair<string, string>>
+                    {
+                        new KeyValuePair<string, string>("client_id", StartConfig.ClientId),
+                        new KeyValuePair<string, string>("client_secret", StartConfig.ClientSecret),
+                        new KeyValuePair<string, string>("grant_type", "client_credentials"),
+                    };
+                    if (!string.IsNullOrEmpty(StartConfig.AuthScopes))
+                    {
+                        content.Add(new KeyValuePair<string, string>("scope", StartConfig.AuthScopes));
+                    }
+                    
+                    requestMessage.Content = new FormUrlEncodedContent(content);
+                }
+                else
+                {
+                    const string content = "{\r\n    \"grant_type\": \"client_credentials\"\r\n}";
+                    requestMessage.Content = new StringContent(content, Encoding.UTF8, "application/json");
+                }
 
                 var s = client.SendAsync(requestMessage).Result;
 
