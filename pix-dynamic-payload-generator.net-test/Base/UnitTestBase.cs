@@ -40,5 +40,13 @@ namespace pix_dynamic_payload_generator.net_test.Base
         /// Caminho para o certificado fornecido pelo PSP
         /// </summary>
         public X509Certificate2 Certificate => new X509Certificate2(@".\certificado.p12");
+
+        public string AuthEndpoint => "/oauth/token";
+
+        public bool UseUrlFormEncodedForAuth => false;
+
+        public string AuthScopes => "";
+
+        public bool UseEndpointArea => false;
     }
 }
